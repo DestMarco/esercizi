@@ -11,3 +11,20 @@ name:str="Mario"
 #questa variabbile contine il messagio
 message:str=f"Ciao{name}, ti va di imparare un pò di python insime? "
 print(message)
+
+
+"""
+2-4. Name Cases: Use a variable to represent a person’s name, and 
+then print that person’s name in lowercase, uppercase, and title case.
+"""
+#questa variabbile contiene il nome 
+name: str="Mario"
+#questa variabbile contine il nome in caratteri minuscoli
+name_lower:str=name.lower()
+#questa variabbile contine il nome in caratteri magliuscole
+name_upper:str=name.upper()
+
+print(f"{name},{name_upper},{name_lower} ")
+
+
+
