@@ -70,6 +70,21 @@ print(f"{file_Remuve}")
 3-1. Names: Store the names of a few of your friends in a list called names.
  Print each person’s name by accessing each element in the list, one at a time.
 """
+#è una lista che cotiene un elenco dei nomi dei mie amici
 Nome_amici:list=["Andrea","Damiano","Rafel","Giovanni","Manuel"]
 
 print(f"{Nome_amici[0]} \n {Nome_amici[1]} \n {Nome_amici[2]} \n {Nome_amici[3]} \n {Nome_amici[4]}")
+
+"""
+3-2. Greetings: Start with the list you used in Exercise 3-1, 
+but instead of just printing each person’s name, print a message to them.
+ The text of each message should be the same, 
+ but each message should be personalized with the person’s name.
+"""
+
+#è una lista che cotiene un elenco dei nomi dei mie amici
+Nome_amici:list=["Andrea","Damiano","Rafel","Giovanni","Manuel"]
+Messagio_A:str="Ciao come stai"
+
+print(f"{Messagio_A} {Nome_amici[0]} \n {Messagio_A} {Nome_amici[1]} \n {Messagio_A} {Nome_amici[2]} \n {Messagio_A} {Nome_amici[3]} \n {Messagio_A} {Nome_amici[4]}")
+
