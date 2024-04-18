@@ -40,5 +40,36 @@ N:str="The Rok"
 Frase:str="\" Chi mi fa pressione me lo mangio a colazione \""
 print(f"{N}\n{Frase}")
 
+"""
+2-6. Famous Quote 2: Repeat Exercise 2-5, but this time, 
+represent the famous person’s name using a variable called famous_person. 
+Then compose your message and represent it with a new variable called message. 
+Print your message. 
+"""
+#questa variabbile contiene il nome della celebrità
+Famus_Name:str="The Rok"
+#questa variabbile contiene la frase della celebrità
+Messaggio:str="\" Chi mi fa pressione me lo mangio a colazione \""
+print(f"{N}\n stampa il messagio \n{Messaggio}")
+
+"""
+2-8. File Extensions: Python has a removesuffix() method that works exactly like removeprefix().
+Assign the value 'python_notes.txt' to a variable called filename. 
+Then use the removesuffix() method to display the filename without the file extension, 
+like some file browsers do.
+"""
+#questa variabbile una stringa con .txt
+file_name:str="python-notes.txt"
+#questa variabbile rimuove il .txt alla vecchia variabbile 
+file_Remuve:str=file_name.removesuffix(".txt")
+
+print(f"{file_Remuve}")
 
 
+"""
+3-1. Names: Store the names of a few of your friends in a list called names.
+ Print each person’s name by accessing each element in the list, one at a time.
+"""
+Nome_amici:list=["Andrea","Damiano","Rafel","Giovanni","Manuel"]
+
+print(f"{Nome_amici[0]} \n {Nome_amici[1]} \n {Nome_amici[2]} \n {Nome_amici[3]} \n {Nome_amici[4]}")
