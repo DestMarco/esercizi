@@ -88,3 +88,16 @@ Messagio_A:str="Ciao come stai"
 
 print(f"{Messagio_A} {Nome_amici[0]} \n {Messagio_A} {Nome_amici[1]} \n {Messagio_A} {Nome_amici[2]} \n {Messagio_A} {Nome_amici[3]} \n {Messagio_A} {Nome_amici[4]}")
 
+"""
+3-3. Your Own List: Think of your favorite mode of transportation, 
+such as a motorcycle or a car, and make a list that stores several examples.
+ Use your list to print a series of statements about these items, 
+such as “I would like to own a Honda motorcycle.”
+"""
+Lista:list=["Ford Mustang","Doge Challenger","Bugatti","Lamborghini"]
+
+mes:str="ma non ho i soldi"
+
+for i in range (len(Lista)):
+    print(f"vorrei {Lista[i]} {mes}")
+
