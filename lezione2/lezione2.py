@@ -101,3 +101,5 @@ mes:str="ma non ho i soldi"
 for i in range (len(Lista)):
     print(f"vorrei {Lista[i]} {mes}")
 
+
+ 
