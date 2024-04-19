@@ -44,6 +44,23 @@ def print_numbers(L:list):
 
 L:list=[1,2,3,4,5]
 print_numbers(L)
+
+print("-----------------------------------------------------------")
+
+
+def print_numbers(L:list):
+ 
+    for i in L:
+        if i==5:
+            print(f"{i} è uguale a 5")
+        elif i>5:
+            print(f"{i} è maggiore rispetto 5")
+        elif i<5:
+            print(f"{i} è minore rispetto 5")
+          
+
+L:list=[1,2,3,4,5,6,6,7,8,9,10]
+print_numbers(L)
     
 
 
