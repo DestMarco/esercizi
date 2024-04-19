@@ -35,6 +35,16 @@ def check_lenght(n:str):
 
 check_lenght("hello word")
 
+print("-------------------------------------------------------------")
+
+def print_numbers(L:list):
+ 
+    for i in L:
+          print(i)
+
+L:list=[1,2,3,4,5]
+print_numbers(L)
+    
 
 
 
