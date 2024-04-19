@@ -21,3 +21,21 @@ def check_value(n:int):
 
 check_value(4)
 
+print("--------------------------------------------------------------")
+
+
+def check_lenght(n:str):
+    if len(n)==10:
+        print(f"la stringa {n} contine 10 caratteri")
+    elif len(n)>10:
+        print(f"la stringa {n} contine più di 10 caratteri")
+    elif len(n)<10:
+        print(f"la stringa {n} contine meno di 10 caratteri")
+    
+
+check_lenght("hello word")
+
+
+
+
+
