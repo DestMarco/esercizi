@@ -87,7 +87,7 @@ def add_one_to_list(lis:list):
     
 my_list=[1,2,3,4,5,6,7,8]
 add_one_to_list(my_list)
-    
+print(f"lista prima di essere passara nella funzione{my_list}")
  
 
 
