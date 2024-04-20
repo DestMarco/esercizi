@@ -100,6 +100,89 @@ mes:str="ma non ho i soldi"
 
 for i in range (len(Lista)):
     print(f"vorrei {Lista[i]} {mes}")
+    
+"""
+If you could invite anyone, 
+living or deceased, to dinner, 
+who would you invite? Make a list that 
+includes at least three people you’d like to invite to dinner.
+Then use your list to print a message to each person, inviting them to dinner.
+
+"""    
+print("--------------------------------------------------------------")
+Lista1:list=["Andrea","Damiano","Giovanni"]
 
 
- 
+
+for i in range (len(Lista1)):
+    print(f"vorrei invitarti a cena  {Lista1[i]} ")
+    
+    
+    
+print("---------------------------------------------------------------------")
+
+Lista2 = ["Andrea", "Damiano", "Giovanni"]
+
+# Printo la lista di invitati
+for name in Lista2:
+    print(f"Vorrei invitarti a cena, {name}.")
+
+# Simulo una persona che non puo essere invitato
+name_R = "Damiano"
+print(f"\nscusa , {name_R} non pui venire a cena .\n")
+
+# rimpiazzo il vecchio invitato
+new_guest = "Chiara"
+Lista2[Lista2.index(name_R)] = new_guest
+
+# printo un nuovo messaggio
+for name in Lista2:
+    print(f"Vorrei invitarti a cena, {name}.")
+
+
+
+print("---------------------------------------------------------------------")
+
+# lista origginale 
+guest_list = ["Andrea", "Damiano", "Giovanni"]
+
+
+for name in guest_list:
+    print(f"Vorrei invitarti a cena, {name}.")
+
+
+print("\n ho trovato un tavolo piu' grande!\n")
+
+# Aggiungo nuovi invitati
+guest_list.insert(0, "Maria")  
+guest_list.insert(len(guest_list) // 2, "Chiara") # serve a inserire il nome "Chiara" nella lista degli ospiti esattamente a metà della lista
+guest_list.append("Luca") 
+
+# Print nuovi invitati
+for name in guest_list:
+    print(f"Vorrei invitarti a cena, {name}.")
+    
+    
+print("---------------------------------------------------------------------")
+
+
+ # lista origginale
+guest_list = ["Andrea", "Damiano", "Giovanni", "Maria", "Chiara", "Luca"]
+
+# Print la lista origginale 
+print("Original guest list:")
+for name in guest_list:
+    print(f"Vorrei invitarti a cena, {name}.")
+
+print("\nho scusate il tavolo mi arriva domani posso invitare solo 2 persone .\n")
+
+# Rimuovo delle persone fino ad arrivare a 2 persone 
+while len(guest_list) > 2:
+    removed_guest = guest_list.pop()
+    print(f"Mi dispiace {removed_guest}, ma non posso più invitarti a cena.")
+
+# Printi nuovo lista 
+print("\nFinal guest list:")
+for name in guest_list:
+    print(f"Vorrei invitarti a cena, {name}.")
+    
