@@ -191,3 +191,161 @@ for name in guest_list:
 # lista vuota
 del guest_list[:]
 print("\nEmpty list after removing all guests:", guest_list)
+
+
+print("---------------------------------------------------------------------")
+
+# Lista originale
+posti_da_visitare = ["Machu Picchu","Kyoto","Norveggia","Irlanda","Fiordi norvegessi"]
+
+# Stampa l'elenco originale
+print("Elenco originale:")
+print(posti_da_visitare)
+
+# Stampa l'elenco in ordine alfabetico senza modificarlo
+print("\nElenco in ordine alfabetico:")
+for posto in sorted(posti_da_visitare):
+    print(posto)
+
+# Stampa l'elenco ancora nell'ordine originale
+print("\nElenco ancora nell'ordine originale:")
+for posto in posti_da_visitare:
+    print(posto)
+
+# Stampa l'elenco in ordine alfabetico inverso senza modificarlo
+print("\nElenco in ordine alfabetico inverso:")
+for posto in sorted(posti_da_visitare, reverse=True):
+    print(posto)
+
+# Stampa l'elenco ancora nell'ordine originale
+print("\nElenco ancora nell'ordine originale:")
+for posto in posti_da_visitare:
+    print(posto)
+
+# Cambia l'ordine della lista
+posti_da_visitare.reverse()
+print("\nElenco con ordine invertito:")
+for posto in posti_da_visitare:
+    print(posto)
+
+# Cambia nuovamente l'ordine della lista
+posti_da_visitare.reverse()
+print("\nElenco tornato all'ordine originale:")
+for posto in posti_da_visitare:
+    print(posto)
+
+# Modifica l'elenco in ordine alfabetico
+posti_da_visitare.sort()
+print("\nElenco modificato in ordine alfabetico:")
+for posto in posti_da_visitare:
+    print(posto)
+
+# Modifica l'elenco in ordine alfabetico inverso
+posti_da_visitare.sort(reverse=True)
+print("\nElenco modificato in ordine alfabetico inverso:")
+for posto in posti_da_visitare:
+    print(posto)
+    
+    
+print("---------------------------------------------------------------------")
+
+
+Lista2 = ["Andrea", "Damiano", "Giovanni"]
+
+# Printo la lista di invitati
+for name in Lista2:
+    print(f"Vorrei invitarti a cena, {name}.")
+
+# Simulo una persona che non può essere invitata
+name_R = "Damiano"
+print(f"\nScusa, {name_R} non può venire a cena.\n")
+
+# Rimpiazzo il vecchio invitato
+new_guest = "Chiara"
+Lista2[Lista2.index(name_R)] = new_guest
+
+# Printo un nuovo messaggio
+for name in Lista2:
+    print(f"Vorrei invitarti a cena, {name}.")
+
+# Stampo il numero di persone invitate a cena
+num_invitati = len(Lista2)
+print(f"\nNumero di persone invitate a cena: {num_invitati}")
+
+
+print("---------------------------------------------------------------------")
+
+# Creazione di un elenco di montagne
+montagne = ["Everest", "K2", "Kangchenjunga", "Lhotse", "Makalu"]
+
+# Stampa l'elenco originale
+print("Elenco originale di montagne:")
+print(montagne)
+
+# Aggiungi una montagna alla fine dell'elenco
+montagne.append("Cho Oyu")
+print("\nMontagna aggiunta alla fine dell'elenco:")
+print(montagne)
+
+# Inserisci una montagna in una posizione specifica
+montagne.insert(2, "Annapurna")
+print("\nMontagna inserita in una posizione specifica:")
+print(montagne)
+
+# Rimuovi una montagna dall'elenco
+montagne.remove("K2")
+print("\nMontagna rimossa dall'elenco:")
+print(montagne)
+
+# Rimuovi l'ultima montagna dall'elenco
+montagna_rimossa = montagne.pop()
+print("\nUltima montagna rimossa dall'elenco:")
+print(montagne)
+print("Montagna rimossa:", montagna_rimossa)
+
+# Trova la posizione di una montagna nell'elenco
+posizione = montagne.index("Everest")
+print("\nPosizione di Everest nell'elenco:", posizione)
+
+# Conta quante volte una montagna appare nell'elenco
+conteggio = montagne.count("Everest")
+print("\nNumero di volte che Everest appare nell'elenco:", conteggio)
+
+# Ordina l'elenco in ordine alfabetico
+montagne.sort()
+print("\nElenco di montagne ordinato in ordine alfabetico:")
+print(montagne)
+
+# Inverti l'ordine delle montagne nell'elenco
+montagne.reverse()
+print("\nElenco di montagne con ordine invertito:")
+print(montagne)
+
+# Copia l'elenco di montagne
+copia_montagne = montagne.copy()
+print("\nCopia dell'elenco di montagne:")
+print(copia_montagne)
+
+# Svuota l'elenco di montagne
+montagne.clear()
+print("\nElenco di montagne svuotato:")
+print(montagne)
+
+
+print("-------------------------------------------------------------------------------")
+
+persona = {
+    "nome": "Andrea",
+    "cognome": "Bardi",
+    "età": 20,
+    "città": "Roma"
+}
+
+# Stampare ogni informazione memorizzata nel dizionario
+print("Nome:", persona["nome"])
+print("Cognome:", persona["cognome"])
+print("Età:", persona["età"])
+print("Città:", persona["città"])
+
+
+print("-------------------------------------------------------------------------------")
