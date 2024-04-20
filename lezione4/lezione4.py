@@ -61,6 +61,39 @@ def print_numbers(L:list):
 
 L:list=[1,2,3,4,5,6,6,7,8,9,10]
 print_numbers(L)
+
+
+print("-----------------------------------------------------------")
+
+"""
+Write a function add_one(). It takes an integer as argument. The function adds 1 to
+the integer and returns it.
+Write another function add_one_to_list(). It takes a list of integers as argument.
+Define a variable new_list in this function.
+Using a for loop, iterate through the argument list.
+Using add_one(), fill new_list with integers from the argument list incremented
+by 1.
+Print new_list.
+"""
+
+def add_one(N:int):
+     
+     return N+1
+def add_one_to_list(lis:list):
+    new_list:list=[]
+    for N in lis:
+        new_list.append(add_one(N))
+    print(new_list)
+    
+my_list=[1,2,3,4,5,6,7,8]
+add_one_to_list(my_list)
+    
+ 
+
+
+
+
+
     
 
 
