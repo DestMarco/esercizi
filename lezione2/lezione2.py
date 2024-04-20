@@ -167,22 +167,27 @@ print("---------------------------------------------------------------------")
 
 
  # lista origginale
+# Original guest list
 guest_list = ["Andrea", "Damiano", "Giovanni", "Maria", "Chiara", "Luca"]
 
-# Print la lista origginale 
+# Print lista iniziae 
 print("Original guest list:")
 for name in guest_list:
     print(f"Vorrei invitarti a cena, {name}.")
 
-print("\nho scusate il tavolo mi arriva domani posso invitare solo 2 persone .\n")
+# Simulating the delayed arrival of the new dining table
+print("\nscuste non posso invitare nessuno il tavolo mi arriva domani.\n")
 
-# Rimuovo delle persone fino ad arrivare a 2 persone 
+# Remuovo dalla lista delle persone 
 while len(guest_list) > 2:
-    removed_guest = guest_list.pop()
-    print(f"Mi dispiace {removed_guest}, ma non posso più invitarti a cena.")
+    del guest_list[-1]
+    print(f"Mi dispiace {guest_list[-1]}, ma non posso più invitarti a cena.")
 
-# Printi nuovo lista 
+# Print a person 
 print("\nFinal guest list:")
 for name in guest_list:
     print(f"Vorrei invitarti a cena, {name}.")
-    
+
+# lista vuota
+del guest_list[:]
+print("\nEmpty list after removing all guests:", guest_list)
