@@ -11,7 +11,7 @@ def convert_to_title(col_number:int)->int:
   while col_number>0:
     r:int=(col_number-1)%26 #questo mi da il resto
     result=chr(r+ ord("A"))+result
-    col_number=(col_number-1)//25
+    col_number=(col_number-1)//26
   return r
 
 
