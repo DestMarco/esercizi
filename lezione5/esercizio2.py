@@ -1,4 +1,4 @@
-def ultima_parola(L:str) ->str:
+def length_of_last_word(L:str) ->str:
     rev="".join (reversed(L))
     n=0
     for i in range( len(L)):
@@ -8,6 +8,6 @@ def ultima_parola(L:str) ->str:
             n+=1
     print(f"nella frase{L} ci sono  {n} lettere  ")
     
-    
-ultima_parola("hello word")
+
+length_of_last_word("hello word")
 
