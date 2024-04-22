@@ -8,3 +8,5 @@ nums1=[2,2,4,2,1]
 nums2=[1,1,2,0,2,1,2]
 risultato=intesrsection(nums1,nums2)
 print(risultato)
+
+
