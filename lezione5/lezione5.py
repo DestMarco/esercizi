@@ -1,5 +1,5 @@
 def is_palindromo(X):
-    S=str(X)
+    S:str=str(X)
     rev="".join(reversed(S))
     
     if S == rev:
