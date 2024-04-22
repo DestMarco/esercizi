@@ -12,7 +12,9 @@ def convert_to_title(col_number:int)->int:
     r:int=(col_number-1)%26 #questo mi da il resto
     result=chr(r+ ord("A"))+result
     col_number=(col_number-1)//26
-  return r
+  return result
+
+print(convert_to_title(10))
 
 
 
