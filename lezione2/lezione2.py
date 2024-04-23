@@ -543,7 +543,7 @@ for nome in lista_invitati:
 
 # Estensione del programma: Aggiunta di informazioni sugli invitati
 informazioni_invitati = {
-    "Andrea": {"età": 30, "professione": "ingegnere"},
+    "Andrea": {"età": 30, "professione": "studente"},
     "Giovanni": {"età": 25, "professione": "studente"},
     "Chiara": {"età": 28, "professione": "avvocato"}
 }
