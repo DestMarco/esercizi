@@ -488,4 +488,28 @@ The keys for each city’s dictionary should be something like country, populati
 Print the name of each city and all of the information you have stored about it.
 """
 
+# Dictionary of cities
+cities = {
+    "Tokyo": {
+        "country": "Japan",
+        "population": 37300000,
+        "fact": "Tokyo is the largest metropolitan area in the world."
+    },
+    "New York": {
+        "country": "United States",
+        "population": 19300000,
+        "fact": "New York City is known as 'The Big Apple'."
+    },
+    "London": {
+        "country": "United Kingdom",
+        "population": 8900000,
+        "fact": "London is the capital city of England and the United Kingdom."
+    }
+}
 
+# Print information about each city
+for city, info in cities.items():
+    print(f"City: {city}")
+    print(f"Country: {info['country']}")
+    print(f"Population: {info['population']}")
+    print(f"Fact: {info['fact']}")
