@@ -513,3 +513,44 @@ for city, info in cities.items():
     print(f"Country: {info['country']}")
     print(f"Population: {info['population']}")
     print(f"Fact: {info['fact']}")
+print("--------------------------------------------------------------")
+"""
+6-12. Extensions: We’re now working with examples that are complex enough that
+they can be extended in any number of ways. Use one of the example programs from this chapter,
+and extend it by adding new keys and values,
+changing the context of the program, or improving the formatting of the output
+"""
+# Lista degli invitati iniziale
+lista_invitati = ["Andrea", "Damiano", "Giovanni"]
+
+# Stampa la lista degli invitati
+print("Lista degli invitati iniziale:")
+for nome in lista_invitati:
+    print(f"Vorrei invitarti a cena, {nome}.")
+
+# Simulazione di una persona che non può essere invitata
+nome_rimosso = "Damiano"
+print(f"\nScusa, {nome_rimosso} non può venire a cena.\n")
+
+# Sostituire l'invitato con uno nuovo
+nuovo_invitato = "Chiara"
+lista_invitati[lista_invitati.index(nome_rimosso)] = nuovo_invitato
+
+# Stampa un nuovo messaggio con la lista aggiornata degli invitati
+print("Lista degli invitati aggiornata:")
+for nome in lista_invitati:
+    print(f"Vorrei invitarti a cena, {nome}.")
+
+# Estensione del programma: Aggiunta di informazioni sugli invitati
+informazioni_invitati = {
+    "Andrea": {"età": 30, "professione": "ingegnere"},
+    "Giovanni": {"età": 25, "professione": "studente"},
+    "Chiara": {"età": 28, "professione": "avvocato"}
+}
+
+# Stampa delle informazioni aggiuntive sugli invitati
+print("\nInformazioni aggiuntive sugli invitati:")
+for nome, info in informazioni_invitati.items():
+    print(f"{nome}:")
+    print(f"    Età: {info['età']}")
+    print(f"    Professione: {info['professione']}")
