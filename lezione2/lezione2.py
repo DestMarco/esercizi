@@ -347,5 +347,145 @@ print("Cognome:", persona["cognome"])
 print("Età:", persona["età"])
 print("Città:", persona["città"])
 
+print("-------------------------------------------------------------------------------")
+"""
+6-2. Favorite Numbers: Use a dictionary to store people’s favorite numbers. 
+Think of five names, and use them as keys in your dictionary. 
+Think of a favorite number for each person, and store each as a value in your dictionary.
+ Print each person’s name and their favorite number. 
+For even more fun, poll a few friends and get some actual data for your program.
+"""
+favorite_number:dict={"Andrea":27,"Giovanni":47,"Gaia":3,"Frank":8,"Daniele":9}
+
+for name,number in favorite_number.items():
+
+    print(f"Il numero preferito di {name} è {number}.")
+print("-------------------------------------------------------------------------------")
+"""
+6-3. Glossary: A Python dictionary can be used to model an actual dictionary. However,
+ to avoid confusion, let’s call it a glossary.
+• Think of five programming words you’ve learned about in the previous chapters.
+ Use these words as the keys in your glossary, and store their meanings as values.
+• Print each word and its meaning as neatly formatted output. 
+You might print the word followed by a colon and then its meaning,
+ or print the word on one line and then print its meaning indented on a second line.
+ Use the newline character (\n) to insert a blank line between each word-meaning pair in your output.
+"""
+glossary = {
+"variable": "A named storage location in memory that stores data.",
+"function": "A block of reusable code that performs a specific task.",
+    "loop": "A control flow statement for executing code repeatedly.",
+    "list": "A data structure that holds an ordered collection of items.",
+      "dictionary": "A data structure that holds key-value pairs."
+}
+for term,definition in glossary.items():
+    print(f"{term.title()}:")
+    print(definition)
 
 print("-------------------------------------------------------------------------------")
+"""
+6-7. People: Start with the program you wrote for Exercise 6-1.
+ Make two new dictionaries representing different people, 
+ and store all three dictionaries in a list called people. Loop through your list of people.
+ As you loop through the list, print everything you know about each person.
+"""
+people:list=[]
+persona = {
+    "nome": "Andrea",
+    "cognome": "Bardi",
+    "età": 20,
+    "città": "Roma"
+}
+
+persona2 = {
+    "nome": "Damiano",
+    "cognome": "Libberati",
+    "età": 20,
+    "città": "Svizzera"
+}
+persona3 = {
+    "nome": "Claudia",
+    "cognome": "Marsella",
+    "età": 47,
+    "città": "Roma"
+}
+people.append(persona)
+people.append(persona2)
+people.append(persona3)
+
+for i in people:
+    print("nome:",i["nome"])
+    print("cognome:",i["cognome"])
+    print("età:",i["età"])
+    print("città:",i["città"])
+    
+
+print("-------------------------------------------------------------------------------")
+"""
+6-8. Pets: Make several dictionaries, where each dictionary represents a different pet. 
+In each dictionary, include the kind of animal and the owner’s name. 
+Store these dictionaries in a list called pets. Next, loop through your list and as
+you do, print everything you know about each pet. 
+"""
+
+
+
+Animali_domestici:list[str]=[]
+
+pets1:dict={"Animale":"Gatto","padrone":"Damiano"}
+pets2:dict={"Animale":"Cane","padrone":"Andrea"}
+pets3:dict={"Animale":"Pesce Rosso","padrone":"Giovanna"}
+pets4:dict={"Animale":"Serpente","padrone":"Marco"}
+
+Animali_domestici.append(pets1)
+Animali_domestici.append(pets2)
+Animali_domestici.append(pets3)
+Animali_domestici.append(pets4)
+
+for i in Animali_domestici:
+    print("Animale:",i["Animale"])
+    print("padrone:",i["padrone"])
+
+print("------------------------------------------------------------")
+"""
+6-9. Favorite Places: Make a dictionary called favorite_places.
+ Think of three names to use as keys in the dictionary,
+   and store one to three favorite places for each person.
+     To make this exercise a bit more interesting, 
+     ask some friends to name a few of their favorite places.
+ Loop through the dictionary, and print each person’s name and their favorite places.
+"""
+# Dictionary of favorite places
+favorite_places = {
+    "Andrea": ["Canada", "Jappan"],
+    "Giovanni": ["Domodossola", "Matera"],
+    "Charlie": ["London"]
+}
+
+# Loop through the dictionary and print each person's name and their favorite places
+for person, places in favorite_places.items():
+    print(f"{person}'s favorite places are:")
+    for place in places:
+        print("- " + place)
+print("--------------------------------------------------------------------")
+"""
+6-10. Favorite Numbers: Modify your program from Exercise 6-2 so each 
+person can have more than one favorite number. 
+Then print each person’s name along with their favorite numbers.
+"""
+favorite_number:dict={"Andrea":[27,72],"Giovanni":[47,44],"Gaia":[3,501],"Frank":[8,10],"Daniele":[9,23]}
+
+for name,number in favorite_number.items():
+
+    print(f"Il numero preferito di {name} è {number}.")
+print("--------------------------------------------------------------------")
+"""
+6-11. Cities: Make a dictionary called cities.
+Use the names of three cities as keys in your dictionary. 
+Create a dictionary of information about each city and include the country that the city is in,
+its approximate population, and one fact about that city. 
+The keys for each city’s dictionary should be something like country, population, and fact.
+Print the name of each city and all of the information you have stored about it.
+"""
+
+
