@@ -13,3 +13,5 @@ def move_zeroes(nums:list[int]):
         nums[i]=0
     return nums 
 print(move_zeroes(nums=[1,0,3,0,4,0,8,0,10,0,0,0,0,0,0,1,9]))
+
+
