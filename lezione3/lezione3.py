@@ -57,3 +57,42 @@ print("-----------------------------------------------------------")
 print("Counting to Twenty:")
 for number in range(1, 21):
     print(number)
+    
+print("-----------------------------------------------------------")
+
+"""
+4-4. One Million: Make a list of the numbers from one to one million, and then use a for loop to print the numbers.
+(If the output is taking too long, stop it by pressing CTRL-C or by closing the output window.)
+"""
+"""
+# creating a list from 1 a 1 million
+numbers = list(range(1, 1000001))
+
+# Print the numbers using a for loop
+for number in numbers:
+    print(number)
+"""
+print("-----------------------------------------------------------")   
+
+"""
+4-5. Summing a Million: Make a list of the numbers from one to one million,
+and then use min() and max() to make sure your list actually starts at one and ends at one million. Also,
+use the sum() function to see how quickly Python can add a million numbers.
+"""
+
+total_sum = 0
+minimum = None
+maximum = None
+
+# Generate numbers from one to one million and calculate the sum, minimum, and maximum
+for number in range(1, 1000001):
+    total_sum += number
+    if minimum is None or number < minimum:
+        minimum = number
+    if maximum is None or number > maximum:
+        maximum = number
+
+# Print the results
+print(f"Minimum number in the list{minimum}" )
+print(f"Maximum number in the list{maximum}")
+print(f"Sum of numbers from one to one million{total_sum}")
