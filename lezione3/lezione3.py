@@ -96,3 +96,17 @@ for number in range(1, 1000001):
 print(f"Minimum number in the list{minimum}" )
 print(f"Maximum number in the list{maximum}")
 print(f"Sum of numbers from one to one million{total_sum}")
+
+print("-----------------------------------------------------------")
+
+"""
+4-6. Odd Numbers: Use the third argument of the range()
+function to make a list of the odd numbers from 1 to 20. Use a for loop to print each number.
+"""
+# Make a list of odd numbers from 1 to 20
+odd_numbers = list(range(1, 21, 2))
+
+# Print each odd number
+print("List of odd numbers from 1 to 20:")
+for number in odd_numbers:
+    print(number)
