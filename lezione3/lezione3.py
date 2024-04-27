@@ -110,3 +110,148 @@ odd_numbers = list(range(1, 21, 2))
 print("List of odd numbers from 1 to 20:")
 for number in odd_numbers:
     print(number)
+
+print("-----------------------------------------------------------")
+"""
+4-7. Threes: Make a list of the multiples of 3, from 3 to 30. 
+Use a for loop to print the numbers in your list.
+"""
+
+# Creating a list of multiples of 3 from 3 to 30
+multiples_of_3 = [number for number in range(3, 31) if number % 3 == 0]
+
+#Print numbers in the list using a for loop
+print("List of multiples of 3 from 3 to 30:")
+for multiple in multiples_of_3:
+    print(multiple)
+    
+print("-----------------------------------------------------------")
+"""
+4-8. Cubes: A number raised to the third power is called a cube.
+For example, the cube of 2 is written as 2**3 in Python. Make a list of the first 10 cubes
+(that is, the cube of each integer from 1 through 10), and use a for loop to print out the value of each cube.
+"""
+# Make a list of the first 10 cubes
+cubes = [number ** 3 for number in range(1, 11)]
+
+# Print out the value of each cube using a for loop
+print("Cubes of the first 10 integers:")
+for i in cubes:
+    print(i)
+print("-----------------------------------------------------------")
+"""
+4-9. Cube Comprehension: Use a list comprehension to generate a list of the first 10 cubes.
+"""
+# Initialize an empty list to store the cubes
+cubes = []
+
+# Generate the first 10 cubes using a for loop
+for i in range(1, 11):
+    cubes.append(i ** 3)
+
+# Print the list of cubes
+print("List of the first 10 cubes:")
+print(cubes)
+
+print("-----------------------------------------------------------")
+"""
+4-10. Slices: Using one of the programs you wrote in this chapter, 
+add several lines to the end of the program that do the following:
+• Print the message The first three items in the list are:.
+Then use a slice to print the first three items from that program’s list.
+• Print the message Three items from the middle of the list are:. 
+Then use a slice to print three items from the middle of the list.
+• Print the message The last three items in the list are:.
+Then use a slice to print the last three items in the list.
+"""
+
+# Print numbers from 1 to 20
+print("Counting to Twenty:")
+for number in range(1, 21):
+    print(number)
+
+# Create a list of numbers from 1 to 20
+numbers = list(range(1, 21))
+
+# Print the message "The first three items in the list are:"
+print("\n The first three items in the list are:")
+for number in numbers[:3]:
+    print(number)
+
+# Print the message "Three items from the middle of the list are:"
+print("\n Three items from the middle of the list are:")
+m_s = len(numbers) // 2 - 1
+m_e = m_s + 3
+for number in numbers[m_s:m_e]:
+    print(number)
+
+# Print the message "The last three items in the list are:"
+print("\n The last three items in the list are:")
+for number in numbers[-3:]:
+    print(number)
+print("-----------------------------------------------------------")
+"""
+4-11. Le mie pizze, le tue pizze: inizia con il programma dell'esercizio 4-1.
+Crea una copia dell'elenco delle pizze e chiamala friend_pizzas. Quindi, procedi come segue:
+• Aggiungere una nuova pizza all'elenco originale.
+• Aggiungi una pizza diversa alla lista friends_pizzas.
+• Dimostra di avere due elenchi separati.
+Stampa il messaggio Le mie pizze preferite sono:, quindi utilizza un ciclo for per stampare il primo elenco.
+Stampa il messaggio Le pizze preferite del mio amico sono:,
+quindi utilizza un ciclo for per stampare il secondo elenco. 
+Assicurati che ogni nuova pizza sia memorizzata nell'elenco appropriato.
+"""
+# List of favorite pizza
+favorite_pizzas = ['Pepperoni', 'spicy salami', '4 cheeses']
+
+#create a copy of list list for my friend
+f_p=favorite_pizzas[:]
+
+# Add a new pizza to the original list
+favorite_pizzas.append("lumberjack")
+# Add a different pizza to your friend's list
+f_p.append("margherita pizza")
+# Print the names of each pizza
+print("List of favorite pizzas:")
+for pizza in favorite_pizzas:
+    print(pizza)
+# Print your friend's favorite pizzas
+print("\nMy friend's favorite pizzas are:")
+for pizza in f_p:
+    print(pizza)
+    
+print("-----------------------------------------------------------")
+"""
+4-12. More Loops: All versions of foods.py in this section have avoided using for loops when printing,
+to save space. Choose a version of foods.py, and write two for loops to print each list of foods.
+"""
+# List of favorite pizza
+pizzas = ['Pepperoni', 'spicy salami', '4 cheeses']
+apps = ['Nachos', 'Wings', 'Bruschetta']
+# Print the names of each pizza
+print("List of pizzas:")
+for pizza in favorite_pizzas:
+    print(pizza)
+    
+print("\n")
+    
+for i in apps:
+    print(i)
+
+print("-----------------------------------------------------------")
+"""
+4-14. PEP 8: Look through the original PEP 8 style guide at https://python.org/dev/peps/pep-0008.
+You won’t use much of it now,
+but it might be interesting to skim through it.
+"""
+print("-----------------------------------------------------------")
+"""
+4-15. Code Review: Choose three of the programs 
+you’ve written in this chapter and modify each one to comply with PEP 8.
+"""
+
+
+
+
+
+    
