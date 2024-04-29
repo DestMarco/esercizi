@@ -561,14 +561,14 @@ would you like to see a status report?
 thank you for logging in again.
 """
 # Make a list of usernames
-usernames = ['admin', 'Alice', 'Bob', 'Damiano', 'Andrea', 'Aurora']
+user = ['admin', 'Alice', 'Bob', 'Damiano', 'Andrea', 'Aurora']
 
 # Loop through the list and print a greeting to each user
-for username in usernames:
-    if username == 'admin':
+for users in user:
+    if users == 'admin':
         print("Hello admin, would you like to see a status report?")
     else:
-        print(f"Hello {username.title()}, thank you for logging in again.")
+        print(f"Hello {users.title()}, thank you for logging in again.")
         
 print("--------------------------------------------------------")
 """
@@ -578,26 +578,26 @@ print("--------------------------------------------------------")
 """
 
 # Make a list of usernames
-usernames = ['admin', 'Alice',
+user = ['admin', 'Alice',
              'Bob', 'Damiano',
              'Andrea', 'Aurora']
 
 # Check if the list of users is not empty
-if usernames:
+if user:
     # Loop through the list and print a greeting to each user
-    for username in usernames:
-        if username == 'admin':
+    for users in user:
+        if users == 'admin':
             print("Hello admin, would you like to see a status report?")
         else:
-            print(f"Hello {username.title()}, thank you for logging in again.")
+            print(f"Hello {users.title()}, thank you for logging in again.")
 else:
     print("We need to find some users!")
 
 # Remove all usernames from the list
-usernames.clear()
+user.clear()
 
 # Check if the list of users is now empty
-if not usernames:
+if not user:
     print("We need to find some users!")
     
     
