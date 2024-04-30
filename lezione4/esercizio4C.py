@@ -343,7 +343,7 @@ while unprinted_designs:
 # Display all completed models
 show_completed_models(completed_models)
 """
-print("l'esercizio mi da problemi nell'impr_models")
+print("l'esercizio mi da problemi nell print_models")
 print("------------------------------------------------------------")
 
 """
