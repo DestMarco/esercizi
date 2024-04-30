@@ -355,32 +355,26 @@ from module_name import
 """
 
 
-"""
+
 import care
-# main_program.py
 
-# Approach 1: import module_name
-
-
-car1 = car.make_car('subaru', 'outback', color='blue', tow_package=True)
-print(car1)
 
 # Approach 2: from module_name import function_name
 from care import make_car
 
-car2 = make_car('toyota', 'camry', color='red', tow_package=False)
+car2 = make_car('toyota', 'camry', color='red')
 print(car2)
 
 # Approach 3: from module_name import function_name as fn
-from care import make_car as create_car
+from care import make_car as fn
 
-car3 = create_car('honda', 'civic', color='green', tow_package=True)
+car3 = fn('honda', 'civic', color='green')
 print(car3)
 
 # Approach 4: import module_name as mn
 import care as cf
 
-car4 = cf.make_car('ford', 'focus', color='black', tow_package=False)
+car4 = cf.make_car('ford', 'focus', color='black')
 print(car4)
 
 # Approach 5: from module_name import *
@@ -388,7 +382,7 @@ from care import *
 
 car5 = make_car('chevrolet', 'malibu', color='white', tow_package=True)
 print(car5)
-"""
+
 
 print("-------------------------------------------------------------------")
 
