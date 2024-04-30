@@ -325,23 +325,25 @@ print("------------------------------------------------------------")
 8-15. Printing Models: Put the functions for the example printing_models.py in a separate file called printing_functions.
 py.Write an import statement at the top of printing_models.py, and modify the file to use the imported functions.
 """
+"""
+from p_f import show_completed_models, print_models
 
+# List of unprinted designs
+unprinted_designs = ['phone case', 'robot pendant', 'dodecahedron']
 
+# List to hold completed models
+completed_models = []
 
-def print_models(models):
- 
-    print("Printing models:")
-    for model in models:
-        print("-" + model)
-print_models("hello word")
+# Simulate printing each design until none are left
+while unprinted_designs:
+    current_design = unprinted_designs.pop()
+    print(f"Printing model: {current_design}")
+    completed_models.append(current_design)
 
-def show_completed_models(completed_models):
-   
-    print("\nThe following models have been printed:")
-    for completed_model in completed_models:
-        print("-" + completed_model)
-        
-
+# Display all completed models
+show_completed_models(completed_models)
+"""
+print("l'esercizio mi da problemi nell'impr_models")
 print("------------------------------------------------------------")
 
 """
