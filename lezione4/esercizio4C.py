@@ -272,8 +272,8 @@ def make_sandwich(*items):
 
 # Call the function three times with a different number of arguments each time
 make_sandwich("Ham", "Cheese", "Lettuce")
-make_sandwich("Turkey", "Swiss cheese", "Tomato", "Mustard")
-make_sandwich("Tuna", "Mayonnaise")
+make_sandwich()
+make_sandwich("salsiccia, cime di rapa, senape ")
 
 
 print("------------------------------------------------------------")
