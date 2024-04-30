@@ -261,7 +261,7 @@ for pizza in favorite_pizzas:
 # Print a sentence for each pizza
 print("\nStatements about favorite pizzas:")
 for pizza in favorite_pizzas:
-     print("I like", pizza, "pizza.")
+     print(f"I like {pizza}pizza.")
 
 # Additional sentence
 print("\nI really love pizza!")
