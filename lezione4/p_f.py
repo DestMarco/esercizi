@@ -1,5 +1,5 @@
 
-def print_models(models):
+def new_file(models):
  
     print("Printing models:")
     for model in models:
