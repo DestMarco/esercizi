@@ -41,7 +41,7 @@ print("------------------------------------------------------------")
 def visit_tree_interative(d:dict[int, list[int]],root:int):
     stack: list[int]= [root]
     while stack :
-        curr_node=stack.pop()
+        curr_node=stack.pop(0)
         if curr_node:
             print(curr_node)
             left_child, right_child=\
@@ -51,10 +51,23 @@ def visit_tree_interative(d:dict[int, list[int]],root:int):
             if left_child:
                 stack.append(left_child)
 
+print("---------------------------------------------------------------------------------")
+
+def visiting_tree_iterative(tree: dict[int, list[int]], root: int):
+    result={}
+    stack: list[int] = [root,0]
+    while stack: # while len(stack) != 0
+        curr_node = stack.pop(0)
+        if curr_node:
+            print(curr_node)
+            left_child, right_child =\
+                tree[curr_node]
+            if left_child:
+                stack.append(left_child)
+            if right_child:
+                stack.append(right_child)
 
 
-
-                
 
 
         
