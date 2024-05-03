@@ -37,5 +37,25 @@ tree={1:[2,3],2:[4,None], 3:[None,None], 4:[None,None], 5:[None,None] }
 visit_tree(tree,1)
 
 
+print("------------------------------------------------------------")
+def visit_tree_interative(d:dict[int, list[int]],root:int):
+    stack: list[int]= [root]
+    while stack :
+        curr_node=stack.pop()
+        if curr_node:
+            print(curr_node)
+            left_child, right_child=\
+                tree (curr_node)
+            if right_child:
+                stack.append(right_child)
+            if left_child:
+                stack.append(left_child)
+
+
+
+
+                
+
+
         
     
