@@ -74,4 +74,37 @@ print()
 r_n.print_info()
 print()
 
+print("------------------------------------------------------------------------------------------")
+
+class Animal:
+    def __init__ (self, name:str, legs:int):
+        self.name=name
+        self.legs=legs
+        
+    def set_legs (self,legs):
+        self.legs=legs
+
+    def get_legs (self):
+        return self.legs
+
+    def print_info (self):
+        print(f'Name ={self.name}, Legs ={self.legs}')
+
+animal1=Animal("Dog", 4)
+animal2=Animal("Snake", 0)
+
+
+print(animal1.name)
+print(animal2.name)
+
+animal1.set_legs(3)
+
+animal2.set_legs(100)
+
+print(animal1.get_legs())
+print(animal2.get_legs())
+
+animal1.print_info()
+animal2.print_info()
+
 
