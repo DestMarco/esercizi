@@ -107,4 +107,38 @@ print(animal2.get_legs())
 animal1.print_info()
 animal2.print_info()
 
+print("--------------------------------------------------------------------------")
+class Food:
+    def __init__(self, name:str, price: float, description=None):
+        self.name=name
+        self.price=price
+        self.description=description
+class Menu:
+    def __init__(self, foods=None):
+        if foods is None:
+            self.foods=[]
+        else:
+            self.foods=foods
+    def add_food(self, food:str):
+        self.foods.append(food)
+    def removeFood(self,food:str):
+        for i in self.foods:
+            if i.name == food:
+                self.foods.remove(i)
+
+food1=Food("pizza", 9.99)
+food2=Food("burger", 10)
+food3=Food("cavial",100)
+
+menu = Menu([food1,food2,food3])
+
+menu.add_food(Food("meat",20.90))
+menu.add_food(Food("oro",70.69))
+
+menu.removeFood("oro")
+
+
+
+
+
 
