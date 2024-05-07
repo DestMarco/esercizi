@@ -145,6 +145,7 @@ menu.add_food(Food("oro",70.69))
 
 menu.removeFood("oro")
 
+print (menu)
 
 
 
