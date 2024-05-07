@@ -113,6 +113,9 @@ class Food:
         self.name=name
         self.price=price
         self.description=description
+
+    def __str__(self) :
+        return f'{self.name.capitalize()},(price ={self.price} descriprion={self.description})'
 class Menu:
     def __init__(self, foods=None):
         if foods is None:
@@ -125,6 +128,11 @@ class Menu:
         for i in self.foods:
             if i.name == food:
                 self.foods.remove(i)
+    def __str__(self) -> str:
+         repr:str=""
+         for i in self.foods:
+             repr += "\n" + str(i)
+         return repr[1:]
 
 food1=Food("pizza", 9.99)
 food2=Food("burger", 10)
