@@ -47,3 +47,31 @@ for i in people:
         c=i.age
 print(c)
 
+print("------------------------------------------------------------------------------------------")
+
+class Student:
+    def __init__ (self, name:str,studyProgram:str, age:int, gender:str):
+        self.name= name 
+        self.studyprogram=studyProgram
+        self.age=age
+        self.gender=gender 
+
+    def print_info(self):
+        print(f"Name={self.name}, study Program={self.studyprogram}, age={self.age},"\
+              +f" gender={self.gender}")
+        
+        
+        
+
+myself=Student("Marco","Informatics",19,"M")
+l_n=Student("Riccardo","Computer science",27,"M")
+r_n=Student("Andrea","Informatics",20,"M")
+
+myself.print_info()
+print()
+l_n.print_info()
+print()
+r_n.print_info()
+print()
+
+
