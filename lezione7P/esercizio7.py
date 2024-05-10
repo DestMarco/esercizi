@@ -69,3 +69,52 @@ user1= user(first_name="Lorenzo",
 print(user)
 
 print("------------------------------------------------------------------------------------")
+"""
+9-5. Login Attempts: Add an attribute called login_attempts to your User class from Exercise 9-3.ù
+Write a method called increment_login_attempts() that increments the value of login_attempts by 1.
+Write another method called reset_login_attempts() that resets the value of login_attempts to 0. 
+Make an instance of the User class and call increment_login_attempts() several times. Print the value
+of login_attempts to make sure it was incremented properly, and then call reset_login_attempts(). 
+Print login_attempts again to make sure it was reset to 0.
+"""
+class User:
+    def __init__(self, first_name: str, last_name: str, age: int, cf: int, email: str):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+        self.cf = cf
+        self.email = email
+        self.login_attempts = 0
+
+    def greet_user(self):
+        print(f"Hello {self.first_name}. Come va?")
+
+    def __str__(self) -> str:
+        return f"User(name={self.first_name})"+ f"username={self.last_name}"
+
+    def increment_login_attempts(self):
+        self.login_attempts += 1
+
+    def reset_login_attempts(self):
+        self.login_attempts = 0
+
+
+# Creazione di un'istanza della classe User
+user1 = User(first_name="Lorenzo",
+             age=22, last_name="Maggi",
+             email="lorenzo.maggi@gmail.com",
+             cf="MGGLNZ01L07H50IL")
+
+# Chiamata ripetuta del metodo increment_login_attempts()
+user1.increment_login_attempts()
+user1.increment_login_attempts()
+user1.increment_login_attempts()
+
+# Stampa del numero di tentativi di accesso
+print(f"Numero di tentativi di accesso= {user1.login_attempts}")
+
+# Chiamata al metodo reset_login_attempts()
+user1.reset_login_attempts()
+
+# Stampa del numero di tentativi di accesso dopo il reset
+print(f"Dopo il reset, numero di tentativi di accesso= {user1.login_attempts}")
