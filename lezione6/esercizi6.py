@@ -121,3 +121,87 @@ print("Number of customers served after setting:", r3.num_served)
 # Incrementing the number of customers served
 r3.increment_number_served(10)  # Incrementing by 10
 print("Number of customers served after incrementing:", r3.num_served)
+
+
+print("----------------------------------------------------------------------------------")
+
+"""
+9-5. Login Attempts: Add an attribute called login_attempts to your User class from Exercise 9-3.
+Write a method called increment_login_attempts() that increments the value of login_attempts by 1.
+Write another method called reset_login_attempts() that resets the value of login_attempts to 0.
+Make an instance of the User class and call increment_login_attempts() several 
+times. Print the value of login_attempts to make sure it was incremented properly,
+and then call reset_login_attempts(). Print login_attempts again to make sure it was reset to 0.
+"""
+
+
+class User:
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+        self.login_attempts = 0
+    
+    def describe_user(self):
+        print(f"User Information:")
+        print(f"Name: {self.first_name} {self.last_name}")
+        print(f"Age: {self.age}")
+        
+    def greet_user(self):
+        print(f"Hello, {self.first_name}! UwU.")
+        
+    def increment_login_attempts(self):
+        self.login_attempts += 1
+    
+    def reset_login_attempts(self):
+        self.login_attempts = 0
+
+# Creating an instance of the User class
+user1 = User("Andre", "Bardi", 20)
+
+# Calling methods for the user
+user1.describe_user()
+user1.greet_user()
+
+# Incrementing login attempts multiple times
+user1.increment_login_attempts()
+user1.increment_login_attempts()
+user1.increment_login_attempts()
+
+# Printing login attempts to ensure it's correctly incremented
+print("Login attempts:", user1.login_attempts)
+
+# Resetting login attempts
+user1.reset_login_attempts()
+
+# Printing login attempts again to ensure it's reset to 0
+print("Login attempts after reset:", user1.login_attempts)
+
+print("----------------------------------------------------------------------------------")
+
+"""
+- 9-6. Ice Cream Stand: Un supporto per gelati è un tipo specifico di ristorante. Scrivi una classe chiamata
+IceCreamStand che eredita dalla classe del ristorante che hai scritto in Esercizio 9-1 o Esercizio 9-4. Entrambe
+le versioni della classe funzioneranno; basta scegliere quello che ti piace di più. Aggiungi un attributo chiamato 
+sapori che memorizza una lista di aromi di gelato.
+Scrivi un metodo che mostri questi sapori. Creare un'istanza di IceCreamStand e chiamare questo metodo.
+"""
+
+
+
+class IceCreamStand(Restaurant):
+    def __init__(self, restaurant_name, cuisine_type):
+        super().__init__(restaurant_name, cuisine_type)
+        self.flavors = []
+    
+    def display_flavors(self):
+        print("Available Ice Cream Flavors:")
+        for flavor in self.flavors:
+            print(flavor)
+
+# Creating an instance of the IceCreamStand class
+ice_cream_stand = IceCreamStand("The Frozen Spoon", "Ice Cream Parlor")
+ice_cream_stand.flavors = ["Vanilla", "Chocolate", "Strawberry", "Mint Chocolate Chip"]
+
+# Calling the method to display flavors
+ice_cream_stand.display_flavors()
