@@ -48,23 +48,76 @@ restaurant1.describe_restaurant()
 restaurant2.describe_restaurant()
 restaurant3.describe_restaurant()
 print("----------------------------------------------------------------------------------")
-class user:
-    def __init__ (self, first_name:str, last_name:str, age:int, cf:int, email:str):
-        self.sirst_name=first_name
-        self.last_name=last_name
-        self.age=age
-        self.cf=cf
-        self.email=email
-
+"""
+9-3. Users: Make a class called User. Create two attributes called first_name and last_name, and then create several 
+other attributes that are typically stored in a user profile. Make a method called describe_user() that prints a summary 
+of the user’s information. Make another method called greet_user() that prints a personalized greeting to the user.
+ Create several instances representing different users, and call both methods for each user.
+"""
+class User:
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+       
+    
+    def describe_user(self):
+        print(f"User Information:")
+        print(f"Name: {self.first_name} {self.last_name}")
+        print(f"Age: {self.age}")
+        
     def greet_user(self):
-        print(f"Hello {self.sirst_name}. come va?")
-    def __str__(self) ->str:
-        return f"User(name={self.sirst_name})"\
-        +f"username={ self.last_name}"
-user1= user(first_name="Lorenzo",
-            age=22, last_name="Maggi",
-            email="lorenzo.maggi@gmail.com",
-            cf="MGGLNZ01L07H50IL")
-print(user)
+        print(f"Hello, {self.first_name}! UwU.")
 
-print("------------------------------------------------------------------------------------")
+# Creating instances of the User class
+
+user1 = User("Andre", "Bardi", 20)
+
+
+# Calling methods for each user
+user1.describe_user()
+user1.greet_user()
+
+print("----------------------------------------------------------------------------------")
+
+"""
+9-4. Number Served: Start with your program from Exercise 9-1. Add an attribute called number_served with a default value of 0. 
+Create an instance called restaurant from this class. Print the number of customers the restaurant has served, and then change this value and
+print it again. Add a method called set_number_served() that lets you set the number of customers that have been served. Call this method with a
+new number and print the value again. Add a method called increment_number_served() that lets you increment the number of customers who’ve been served. 
+Call this method with any number you like that could represent how many customers were served in, say, a day of business. 
+"""
+class Restaurant:
+    def __init__(self, ristorante: str, cucina: str, num: int = 0) -> None:
+        self.ris = ristorante
+        self.cuc = cucina
+        self.num_served = num
+    
+    def describe_restaurant(self):
+        print(f"Nome ristorante: {self.ris}, cucina di tipo {self.cuc}\n")
+    
+    def open_restaurant(self):
+        print(f"Il nuovo ristorante {self.ris} è aperto!")
+    
+    def set_num_served(self, new_number_served: int):
+        self.num_served = new_number_served 
+    
+    def increment_number(self):
+        self.num_served += 1
+    
+    def increment_number_served(self, increment: int):
+        self.num_served += increment
+
+# Creating an instance of the Restaurant class
+r3 = Restaurant(ristorante="Da Baffo", cucina="romana", num=2)
+
+# Printing the initial number of customers served
+print("Initial number of customers served:", r3.num_served)
+
+# Setting a new number of customers served
+r3.set_num_served(4)
+print("Number of customers served after setting:", r3.num_served)
+
+# Incrementing the number of customers served
+r3.increment_number_served(10)  # Incrementing by 10
+print("Number of customers served after incrementing:", r3.num_served)
