@@ -205,3 +205,5 @@ ice_cream_stand.flavors = ["Vanilla", "Chocolate", "Strawberry", "Mint Chocolate
 
 # Calling the method to display flavors
 ice_cream_stand.display_flavors()
+
+print("----------------------------------------------------------------------------------")
