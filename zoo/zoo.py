@@ -52,8 +52,9 @@ Animal(name=Lupo, species=Lupus, age=14)
 
 Fra un recinto e l'altro mettete 30 volte il carattere #.
 """
-
+#I create a class for animal
 class animal:
+# I define values ​​for the object for the class animal
     def __init__(self,name:str, species:str, age:int, height:float, width:float, preferred_habitat:str,
  health:float):
         self.name=name
@@ -63,21 +64,51 @@ class animal:
         self.width=width
         self.preferred_habitat=preferred_habitat
         self.health=health
+
+#I create a class for fence 
 class Fence:
+# I define values ​​for the object for the class fence
     def __init__(self,animal:list[animal], area:float, temperature:float, habitat:str):
         self.animal=animal
         self.area=area
         self.temperature=temperature
         self.habitat=habitat
+
+#I create a class for zookeeper
 class ZooKeeper:
+# I define values ​​for the object for the class zookeeper
     def __init__(self,nome:str, cognome:str, id:str) :
         self.nome=nome
         self.cognome=cognome
         self.id=id
+    # i create a function that allows the zookeeper to add an animal and allows him to calculate the area occupied by an animal 
+    def add_animal(self,animal:animal,fence:Fence):
+        if animal.preferred_habitat != fence.habitat and fence.area < animal.width*animal.height:
+            pass    
+        else:
+            fence.animal.append(animal.name)
+            
+            fence.area=fence.area-(animal.height*animal.height)
+    # i create a function that allows the zookeeper to remove an animal from a fance and to calculate the area that the animal was occuping 
+    def remove_animal(self,animal:animal,fence:Fence):
+        fence.animal.remove(animal)
+
+        fence.area=fence.area+(animal.height*animal.width)
+    def feed (self,animal:animal,fence:Fence):
+        for animal in animal:
+        
+        
+
+#I create a class for zoo
 class zoo:
+# I define values ​​for the object for the class zoo
     def __init__(self, fences :list[Fence], zoo_keeper: list[ZooKeeper] ) -> None:
-        self.fence=fences
+        self.fences=fences
         self.zoo_keeper=zoo_keeper
+   
+        
+
+
 
   
 
