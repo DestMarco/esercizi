@@ -302,6 +302,7 @@ admin1.show_privileges()
             
 user1.describe_user()
 user1.greet_user()
+
 print("----------------------------------------------------------------------------------")
 
 """
@@ -325,3 +326,131 @@ print("Numero di clienti serviti dopo l'impostazione:", r3.num_served)
 # Incremento del numero di clienti serviti
 r3.increment_number_served(10)  # Incremento di 10
 print("Numero di clienti serviti dopo l'incremento:", r3.num_served)
+
+print("----------------------------------------------------------------------------------")
+
+"""
+9-11. Imported Admin: Start with your work from Exercise 9-8. Store the classes User, Privileges,
+and Admin in one module. Create a separate file, make an Admin instance, and call show_privileges() 
+to show that everything is working correctly.
+"""
+from admin import Admin, User
+# Creazione di un'istanza di Admin con le relative Privileges
+admin1 = Admin("John", "Doe", 30, ["can add post", "can delete post", "can ban user"])
+user1 = User("Andre", "Bardi", 20)
+# Utilizzo del metodo show_privileges() dell'istanza di Admin
+admin1.show_privileges()
+            
+user1.describe_user()
+user1.greet_user()
+
+
+print("----------------------------------------------------------------------------------")
+"""
+9-12. Multiple Modules: Store the User class in one module, and store
+the Privileges and Admin classes in a separate module. In a separate file, 
+create an Admin instance and call 
+show_privileges() to show that everything is still working correctly.
+"""
+from Adpre import User,Privileges
+from user import User
+# Creazione di un'istanza di Admin
+admin1 = Admin("John", "Doe", 30, ["can add post", "can delete post", "can ban user"])
+user1 = User("Andre", "Bardi", 20)
+# Chiamata dei metodi della classe User tramite l'istanza di Admin
+admin1.describe_user()
+admin1.greet_user()
+
+# Chiamata del metodo specifico della classe Admin
+admin1.show_privileges()
+
+user1.describe_user()
+user1.greet_user()
+
+
+print("----------------------------------------------------------------------------------")
+
+"""
+9-13. Dice: Make a class Die with one attribute called sides, which has a default value of 6.
+Write a method called roll_die() that prints a random number between 1 and the number of sides the die has.
+Make a 6-sided die and roll it 10 times. 
+Make a 10-sided die and a 20-sided die. Roll each die 10 times.
+"""
+
+import random
+
+class Die:
+    def __init__(self, sides=6):
+        self.sides = sides
+    
+    def roll_die(self):
+        print(f"Rolling a {self.sides}-sided die:")
+        for _ in range(10):
+            roll = random.randint(1, self.sides)
+            print(f"Roll: {roll}")
+
+# Creazione di un dado a 6 facce e lancio 10 volte
+six_sided_die = Die()
+six_sided_die.roll_die()
+
+# Creazione di un dado a 10 facce e lancio 10 volte
+ten_sided_die = Die(sides=10)
+ten_sided_die.roll_die()
+
+# Creazione di un dado a 20 facce e lancio 10 volte
+twenty_sided_die = Die(sides=20)
+twenty_sided_die.roll_die()
+
+
+print("----------------------------------------------------------------------------------")
+
+"""
+9-14. Lottery: Make a list or tuple containing a 
+series of 10 numbers and 5 letters. Randomly select 4 
+numbers or letters from the list and print a message saying that 
+any ticket matching these 4 numbers or letters wins a prize.
+
+"""
+
+import random
+
+# Definizione della lista contenente numeri e lettere
+lottery = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'A', 'B', 'C', 'D', 'E']
+
+# Estrazione casuale di 4 numeri o lettere dalla lista
+winning_combination = random.sample(lottery, k=4)
+
+# Stampa della combinazione vincente
+print("La combinazione vincente è:", winning_combination)
+print("Ogni biglietto che corrisponde a questi 4 numeri o lettere vince un premio!")
+
+print("------------------------------------------------------------------------")
+
+"""
+9-15. Lottery Analysis: You can use a loop to see how hard it might be to win the kind
+of lottery you just modeled. Make a list or tuple called my_ticket. Write a loop that keeps
+pulling numbers until your ticket wins.
+Print a message reporting how many times the loop had to run to give you a winning ticket.
+"""
+
+import random
+
+# Funzione per generare un biglietto casuale
+def generate_ticket():
+    lottery = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'A', 'B', 'C', 'D', 'E']
+    return random.sample(lottery, k=4)
+
+# Biglietto da cercare
+my_ticket = [8, 'D', 10, 1]
+
+# Contatore dei tentativi
+attempts = 0
+
+# Loop finché non viene trovato un biglietto vincente
+while True:
+    attempts += 1
+    if generate_ticket() == my_ticket:
+        break
+
+# Stampa del numero di tentativi necessari per vincere
+print(f"Sono stati necessari {attempts} tentativi per vincere con il biglietto {my_ticket}.")
