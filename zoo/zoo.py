@@ -52,8 +52,9 @@ Animal(name=Lupo, species=Lupus, age=14)
 
 Fra un recinto e l'altro mettete 30 volte il carattere #.
 """
+
 #I create a class for animal
-class animal:
+class Animal:
 # I define values ​​for the object for the class animal
     def __init__(self,name:str, species:str, age:int, height:float, width:float, preferred_habitat:str,
  health:float):
@@ -68,7 +69,7 @@ class animal:
 #I create a class for fence 
 class Fence:
 # I define values ​​for the object for the class fence
-    def __init__(self,animal:list[animal], area:float, temperature:float, habitat:str):
+    def __init__(self,animal:list[Animal], area:float, temperature:float, habitat:str):
         self.animal=animal
         self.area=area
         self.temperature=temperature
@@ -82,7 +83,7 @@ class ZooKeeper:
         self.cognome=cognome
         self.id=id
     # i create a function that allows the zookeeper to add an animal and allows him to calculate the area occupied by an animal 
-    def add_animal(self,animal:animal,fence:Fence):
+    def add_animal(self,animal:Animal,fence:Fence):
         if animal.preferred_habitat != fence.habitat and fence.area < animal.width*animal.height:
             pass    
         else:
@@ -90,13 +91,18 @@ class ZooKeeper:
             
             fence.area=fence.area-(animal.height*animal.height)
     # i create a function that allows the zookeeper to remove an animal from a fance and to calculate the area that the animal was occuping 
-    def remove_animal(self,animal:animal,fence:Fence):
+    def remove_animal(self,animal:Animal,fence:Fence):
         fence.animal.remove(animal)
 
         fence.area=fence.area+(animal.height*animal.width)
-    def feed (self,animal:animal,fence:Fence):
-        for animal in animal:
-        
+    def feed(self, animal: Animal, fence: Fence):
+        # Check if there is enough space in the enclosure for the enlarged animal
+        if fence.area >= (animal.height * 1.02) * (animal.width * 1.02):
+            # Increase the animal's health by 1%
+            animal.health *= 1.01
+            # Increase the dimensions of the animal by 2%
+            animal.height *= 1.02
+            animal.width *= 1.02
         
 
 #I create a class for zoo
@@ -108,8 +114,7 @@ class zoo:
    
         
 
-
-
+        
   
 
 
