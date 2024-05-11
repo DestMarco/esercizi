@@ -207,3 +207,121 @@ ice_cream_stand.flavors = ["Vanilla", "Chocolate", "Strawberry", "Mint Chocolate
 ice_cream_stand.display_flavors()
 
 print("----------------------------------------------------------------------------------")
+"""
+9-7. Admin: An administrator is a special 
+kind of user. Write a class called Admin that inherits from 
+the User class you wrote in Exercise 9-3 or Exercise 9-5. Add 
+an attribute, privileges, that stores a list of strings like 
+"can add post", "can delete post", "can ban user", and so 
+on. Write a method called show_privileges() that lists the 
+administrator’s set of privileges. Create an instance of 
+Admin, and call your method. 
+"""
+
+class User:
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+        
+    def describe_user(self):
+        print("User Information:")
+        print(f"Name: {self.first_name} {self.last_name}")
+        print(f"Age: {self.age}")
+        
+    def greet_user(self):
+        print(f"Hello, {self.first_name}!")
+
+
+class Admin(User):  # La classe Admin eredita dalla classe User
+    def __init__(self, first_name, last_name, age, privileges):
+        super().__init__(first_name, last_name, age)  # Chiama il costruttore della classe genitore
+        self.privileges = privileges  # Aggiunge l'attributo privileges
+    
+    def show_privileges(self):
+        print("Admin Privileges:")
+        for privilege in self.privileges:
+            print(f"- {privilege}")
+
+# Creazione di un'istanza di Admin
+admin1 = Admin("John", "Doe", 30, ["can add post", "can delete post", "can ban user"])
+user1 = User("Andre", "Bardi", 20)
+# Chiamata dei metodi della classe User tramite l'istanza di Admin
+admin1.describe_user()
+admin1.greet_user()
+
+# Chiamata del metodo specifico della classe Admin
+admin1.show_privileges()
+
+user1.describe_user()
+user1.greet_user()
+print("----------------------------------------------------------------------------------")
+
+"""
+9-8. Privileges: Write a separate Privileges class. The class should have one attribute,
+privileges, that stores a list of strings as described in Exercise 9-7. Move the show_privileges()
+method to this class. Make a Privileges instance as an attribute in the Admin class.
+Create a new instance of Admin and use your method to show its privileges.
+"""
+class Privileges:
+    def __init__(self, privileges):
+        self.privileges = privileges
+    
+    def show_privileges(self):
+        print("Admin Privileges:")
+        for privilege in self.privileges:
+            print(f"- {privilege}")
+
+class User:
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+        
+    def describe_user(self):
+        print("User Information:")
+        print(f"Name: {self.first_name} {self.last_name}")
+        print(f"Age: {self.age}")
+        
+    def greet_user(self):
+        print(f"Hello, {self.first_name}!")
+
+class Admin(User,Privileges):
+    def __init__(self, first_name, last_name, age, privileges):
+        super().__init__(first_name, last_name, age)
+        self.privileges = Privileges(privileges)  # Utilizza la classe Privileges come attributo
+    
+    def show_privileges(self):
+        self.privileges.show_privileges()  # Chiama il metodo show_privileges() della classe Privileges
+
+# Creazione di un'istanza di Admin con le relative Privileges
+admin1 = Admin("John", "Doe", 30, ["can add post", "can delete post", "can ban user"])
+user1 = User("Andre", "Bardi", 20)
+# Utilizzo del metodo show_privileges() dell'istanza di Admin
+admin1.show_privileges()
+            
+user1.describe_user()
+user1.greet_user()
+print("----------------------------------------------------------------------------------")
+
+"""
+9-10. Imported Restaurant: Using your latest Restaurant class, store it in a module. 
+Make a separate file that imports Restaurant. Make a Restaurant instance,
+and call one of Restaurant’s methods to show that the import statement is working properly.
+"""
+
+from ristorante import Restaurant
+
+# Creazione di un'istanza della classe Restaurant
+r3 = Restaurant(ristorante="Da Baffo", cucina="romana", num=2)
+
+# Stampa del numero iniziale di clienti serviti
+print("Numero iniziale di clienti serviti:", r3.num_served)
+
+# Impostazione di un nuovo numero di clienti serviti
+r3.set_num_served(4)
+print("Numero di clienti serviti dopo l'impostazione:", r3.num_served)
+
+# Incremento del numero di clienti serviti
+r3.increment_number_served(10)  # Incremento di 10
+print("Numero di clienti serviti dopo l'incremento:", r3.num_served)
