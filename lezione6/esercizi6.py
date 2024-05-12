@@ -352,7 +352,7 @@ the Privileges and Admin classes in a separate module. In a separate file,
 create an Admin instance and call 
 show_privileges() to show that everything is still working correctly.
 """
-from Adpre import User,Privileges
+from Adpre import Admin,Privileges
 from user import User
 # Creazione di un'istanza di Admin
 admin1 = Admin("John", "Doe", 30, ["can add post", "can delete post", "can ban user"])
