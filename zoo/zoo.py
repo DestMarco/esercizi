@@ -105,7 +105,7 @@ class ZooKeeper:
         fence.area=fence.area+(animal.height*animal.width)
     def feed(self, animal: Animal):
         # Check if there is enough space in the enclosure for the enlarged animal
-        if    animal>= (animal.height * 1.02) * (animal.width * 1.02):
+        if  animal.reci.area  >= (animal.height * 1.02) * (animal.width * 1.02):
             # Increase the animal's health by 1%
             animal.health *= 1.01
             # Increase the dimensions of the animal by 2%
