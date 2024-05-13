@@ -65,6 +65,8 @@ class Animal:
         self.width=width
         self.preferred_habitat=preferred_habitat
         self.health=health
+        
+        self.reci=None
 
 #I create a class for fence 
 class Fence:
@@ -84,20 +86,26 @@ class ZooKeeper:
         self.id=id
     # i create a function that allows the zookeeper to add an animal and allows him to calculate the area occupied by an animal 
     def add_animal(self,animal:Animal,fence:Fence):
+        
         if animal.preferred_habitat != fence.habitat and fence.area < animal.width*animal.height:
             pass    
         else:
             fence.animal.append(animal.name)
             
+            animal.reci=fence
+
             fence.area=fence.area-(animal.height*animal.height)
+
+    
     # i create a function that allows the zookeeper to remove an animal from a fance and to calculate the area that the animal was occuping 
     def remove_animal(self,animal:Animal,fence:Fence):
         fence.animal.remove(animal)
+       
 
         fence.area=fence.area+(animal.height*animal.width)
-    def feed(self, animal: Animal, fence: Fence):
+    def feed(self, animal: Animal):
         # Check if there is enough space in the enclosure for the enlarged animal
-        if fence.area >= (animal.height * 1.02) * (animal.width * 1.02):
+        if    animal>= (animal.height * 1.02) * (animal.width * 1.02):
             # Increase the animal's health by 1%
             animal.health *= 1.01
             # Increase the dimensions of the animal by 2%
