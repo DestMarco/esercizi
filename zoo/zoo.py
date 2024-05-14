@@ -66,7 +66,7 @@ class Animal:
         self.preferred_habitat=preferred_habitat
         self.health=health
         
-        self.reci=None
+        self.fen=None
 
 #I create a class for fence 
 class Fence:
@@ -92,7 +92,7 @@ class ZooKeeper:
         else:
             fence.animal.append(animal.name)
             
-            animal.reci=fence
+            animal.fen=fence
 
             fence.area=fence.area-(animal.height*animal.height)
 
@@ -105,21 +105,49 @@ class ZooKeeper:
         fence.area=fence.area+(animal.height*animal.width)
     def feed(self, animal: Animal):
         # Check if there is enough space in the enclosure for the enlarged animal
-        if  animal.reci.area  >= (animal.height * 1.02) * (animal.width * 1.02):
+        if  animal.fen.area  >= (animal.height * 1.02) * (animal.width * 1.02):
             # Increase the animal's health by 1%
+
             animal.health *= 1.01
             # Increase the dimensions of the animal by 2%
             animal.height *= 1.02
             animal.width *= 1.02
+    # i create a fuction that allows the zookeper to clean the fens.
+
+    def clean(self, fence: Fence) -> float:
+        area_oc:float=0
+        for animal in fence.animal:
+            area_oc += animal.height * animal.width
+        if fence.area == 0:
+            return area_oc
+        else:
+            return area_oc/fence.area
+            
         
 
 #I create a class for zoo
-class zoo:
+class Zoo:
 # I define values ​​for the object for the class zoo
     def __init__(self, fences :list[Fence], zoo_keeper: list[ZooKeeper] ) -> None:
         self.fences=fences
         self.zoo_keeper=zoo_keeper
+    # I create a fuction that describes informations about the zoo, animals and zoo keepers 
+    def describe_zoo(self):
+        print("Guardians:")
+        for keeper in self.zoo_keeper:
+            print(f"ZooKeeper(name={keeper.nome}, surname={keeper.cognome}, id={keeper.id})")
+        
+        print("\nFences:")
+        for fence in self.fences:
+            if fence.animal:
+                print(f"Fence(area={fence.area}, temperature={fence.temperature}, habitat={fence.habitat})")
+                print("with animals:")
+                for animal in fence.animal:
+                    print(f"\tAnimal(name={animal.name}, species={animal.species}, age={animal.age})")
+                print("#" * 30)
    
+
+
         
 
         
