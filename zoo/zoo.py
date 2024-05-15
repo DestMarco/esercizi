@@ -82,11 +82,11 @@ class ZooKeeper:
 
     # Function that allows the zookeeper to add a new animal to the zoo
     def add_animal(self, animal: Animal, fence: Fence):
-        required_area = animal.height * animal.width
-        if animal.preferred_habitat == fence.habitat and fence.area >= required_area:
+        req_area = animal.height * animal.width
+        if animal.preferred_habitat == fence.habitat and fence.area >= req_area:
             fence.animal.append(animal)
             animal.fen = fence
-            fence.area -= required_area
+            fence.area -= req_area
 
     # Function that allows the zookeeper to remove an animal from the zoo
     def remove_animal(self, animal: Animal, fence: Fence):
