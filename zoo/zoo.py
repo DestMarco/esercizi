@@ -56,14 +56,14 @@ Fra un recinto e l'altro mettete 30 volte il carattere #.
 #I create a class for animal
 class Animal:
 # I define values ​​for the object for the class animal
-    def __init__(self,name:str, species:str, age:int, height:float, width:float, preferred_habitat:str, health:float):
+    def __init__(self,name:str, species:str, age:int, height:float, width:float, preferred_habitat:str):
         self.name=name
         self.species=species
         self.age=age
         self.height=height
         self.width=width
         self.preferred_habitat=preferred_habitat
-        self.health=health
+        
         
         self.fen=None
         self.health =round(100 * (1 / age), 3)
@@ -148,9 +148,9 @@ class Zoo:
 
 
 # Define some animals
-animal1 = Animal(name="Lion", species="Panthera leo", age=5, height=1.2, width=2.5, preferred_habitat="Savannah", health=85.0)
-animal2 = Animal(name="Elephant", species="Loxodonta", age=10, height=3.3, width=6.0, preferred_habitat="Savannah", health=90.0)
-animal3 = Animal(name="Penguin", species="Aptenodytes forsteri", age=3, height=0.8, width=1.0, preferred_habitat="Cold", health=70.0)
+animal1 = Animal(name="Lion", species="Panthera leo", age=5, height=1.2, width=2.5, preferred_habitat="Savannah")
+animal2 = Animal(name="Elephant", species="Loxodonta", age=10, height=3.3, width=6.0, preferred_habitat="Savannah")
+animal3 = Animal(name="Penguin", species="Aptenodytes forsteri", age=3, height=0.8, width=1.0, preferred_habitat="Cold")
 
 # Define some fences
 fence1 = Fence( area=100.0, temperature=30.0, habitat="Savannah")
