@@ -56,8 +56,7 @@ Fra un recinto e l'altro mettete 30 volte il carattere #.
 #I create a class for animal
 class Animal:
 # I define values ​​for the object for the class animal
-    def __init__(self,name:str, species:str, age:int, height:float, width:float, preferred_habitat:str,
- health:float):
+    def __init__(self,name:str, species:str, age:int, height:float, width:float, preferred_habitat:str, health:float):
         self.name=name
         self.species=species
         self.age=age
@@ -67,12 +66,12 @@ class Animal:
         self.health=health
         
         self.fen=None
-
+        self.health =round(100 * (1 / age), 3)
 #I create a class for fence 
 class Fence:
 # I define values ​​for the object for the class fence
-    def __init__(self,animal:list[Animal], area:float, temperature:float, habitat:str):
-        self.animal=animal
+    def __init__(self, area:float, temperature:float, habitat:str):
+        self.animal=[]
         self.area=area
         self.temperature=temperature
         self.habitat=habitat
@@ -90,7 +89,7 @@ class ZooKeeper:
         if animal.preferred_habitat != fence.habitat and fence.area < animal.width*animal.height:
             pass    
         else:
-            fence.animal.append(animal.name)
+            fence.animal.append(animal)
             
             animal.fen=fence
 
@@ -140,15 +139,65 @@ class Zoo:
         print("\nFences:")
         for fence in self.fences:
             if fence.animal:
-                print(f"Fence(area={fence.area}, temperature={fence.temperature}, habitat={fence.habitat})")
+                print(f"Fence(area={round(fence.area,3)}, temperature={fence.temperature}, habitat={fence.habitat})")
                 print("with animals:")
                 for animal in fence.animal:
-                    print(f"\tAnimal(name={animal.name}, species={animal.species}, age={animal.age})")
+                    print(f"\n Animal(name={animal.name}, species={animal.species}, age={animal.age})")
                 print("#" * 30)
    
 
 
-        
-  
+# Define some animals
+animal1 = Animal(name="Lion", species="Panthera leo", age=5, height=1.2, width=2.5, preferred_habitat="Savannah", health=85.0)
+animal2 = Animal(name="Elephant", species="Loxodonta", age=10, height=3.3, width=6.0, preferred_habitat="Savannah", health=90.0)
+animal3 = Animal(name="Penguin", species="Aptenodytes forsteri", age=3, height=0.8, width=1.0, preferred_habitat="Cold", health=70.0)
 
+# Define some fences
+fence1 = Fence( area=100.0, temperature=30.0, habitat="Savannah")
+fence2 = Fence( area=50.0, temperature=-5.0, habitat="Cold")
 
+# Define a zookeeper
+zookeeper = ZooKeeper(nome="John", cognome="Doe", id="ZK001")
+
+# Define a zoo
+zoo = Zoo(fences=[fence1, fence2], zoo_keeper=[zookeeper])
+
+# Describe the initial state of the zoo
+print("Initial state of the zoo:")
+zoo.describe_zoo()
+
+# Add animals to fences
+zookeeper.add_animal(animal1, fence1)
+zookeeper.add_animal(animal2, fence1)
+zookeeper.add_animal(animal3, fence2)
+
+# Describe the state of the zoo after adding animals
+print("\nAfter adding animals:")
+zoo.describe_zoo()
+
+# Feed an animal
+zookeeper.feed(animal1)
+
+# Describe the state of the zoo after feeding an animal
+print("\nAfter feeding an animal:")
+zoo.describe_zoo()
+
+# Remove an animal from a fence
+zookeeper.remove_animal(animal2, fence1)
+
+# Describe the state of the zoo after removing an animal
+print("\nAfter removing an animal:")
+zoo.describe_zoo()
+
+# Clean a fence
+print("\nCleaning fence 1:")
+clean_area1 = zookeeper.clean(fence1)
+print(f"Area cleaned in fence 1: {clean_area1}")
+
+print("\nCleaning fence 2:")
+clean_area2 = zookeeper.clean(fence2)
+print(f"Area cleaned in fence 2: {clean_area2}")
+
+# Final state of the zoo
+print("\nFinal state of the zoo:")
+zoo.describe_zoo()
