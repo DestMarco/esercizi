@@ -53,99 +53,87 @@ Animal(name=Lupo, species=Lupus, age=14)
 Fra un recinto e l'altro mettete 30 volte il carattere #.
 """
 
-#I create a class for animal
 class Animal:
-# I define values ​​for the object for the class animal
-    def __init__(self,name:str, species:str, age:int, height:float, width:float, preferred_habitat:str):
-        self.name=name
-        self.species=species
-        self.age=age
-        self.height=height
-        self.width=width
-        self.preferred_habitat=preferred_habitat
-        
-        
-        self.fen=None
-        self.health =round(100 * (1 / age), 3)
-#I create a class for fence 
+    # Defines the values for the object of the Animal class
+    def __init__(self, name: str, species: str, age: int, height: float, width: float, preferred_habitat: str):
+        self.name = name
+        self.species = species
+        self.age = age
+        self.height = height
+        self.width = width
+        self.preferred_habitat = preferred_habitat
+        self.health = round(100 * (1 / age), 3)
+        self.fen = None
+
 class Fence:
-# I define values ​​for the object for the class fence
-    def __init__(self, area:float, temperature:float, habitat:str):
-        self.animal=[]
-        self.area=area
-        self.temperature=temperature
-        self.habitat=habitat
+    # Defines the values for the object of the Fence class
+    def __init__(self, area: float, temperature: float, habitat: str):
+        self.animal = []
+        self.area = area
+        self.temperature = temperature
+        self.habitat = habitat
 
-#I create a class for zookeeper
 class ZooKeeper:
-# I define values ​​for the object for the class zookeeper
-    def __init__(self,nome:str, cognome:str, id:str) :
-        self.nome=nome
-        self.cognome=cognome
-        self.id=id
-    # i create a function that allows the zookeeper to add an animal and allows him to calculate the area occupied by an animal 
-    def add_animal(self,animal:Animal,fence:Fence):
-        
-        if animal.preferred_habitat != fence.habitat and fence.area < animal.width*animal.height:
-            pass    
-        else:
+    # Defines the values for the object of the ZooKeeper class
+    def __init__(self, nome: str, cognome: str, id: str):
+        self.nome = nome
+        self.cognome = cognome
+        self.id = id
+
+    # Function that allows the zookeeper to add a new animal to the zoo
+    def add_animal(self, animal: Animal, fence: Fence):
+        required_area = animal.height * animal.width
+        if animal.preferred_habitat == fence.habitat and fence.area >= required_area:
             fence.animal.append(animal)
-            
-            animal.fen=fence
+            animal.fen = fence
+            fence.area -= required_area
 
-            fence.area=fence.area-(animal.height*animal.height)
+    # Function that allows the zookeeper to remove an animal from the zoo
+    def remove_animal(self, animal: Animal, fence: Fence):
+        if animal in fence.animal:
+            fence.animal.remove(animal)
+            fence.area += animal.height * animal.width
+            animal.fen = None
 
-    
-    # i create a function that allows the zookeeper to remove an animal from a fance and to calculate the area that the animal was occuping 
-    def remove_animal(self,animal:Animal,fence:Fence):
-        fence.animal.remove(animal)
-       
-
-        fence.area=fence.area+(animal.height*animal.width)
+    # Function that allows the zookeeper to feed all the animals in the zoo
     def feed(self, animal: Animal):
         # Check if there is enough space in the enclosure for the enlarged animal
-        if  animal.fen.area  >= (animal.height * 1.02) * (animal.width * 1.02):
+        if  animal.fen.area  >= (animal.height * animal.width * 1.02):
             # Increase the animal's health by 1%
 
             animal.health *= 1.01
             # Increase the dimensions of the animal by 2%
             animal.height *= 1.02
             animal.width *= 1.02
-    # i create a fuction that allows the zookeper to clean the fens.
-
+            animal.fen.area -= (animal.height * animal.width)
+    # Function that allows the zookeeper to clean all the enclosures in the zoo
     def clean(self, fence: Fence) -> float:
-        area_oc:float=0
-        for animal in fence.animal:
-            area_oc += animal.height * animal.width
+        area_oc = sum(animal.height * animal.width for animal in fence.animal)
         if fence.area == 0:
             return area_oc
         else:
-            return area_oc/fence.area
-            
+            return area_oc / fence.area
         
-
-#I create a class for zoo
 class Zoo:
-# I define values ​​for the object for the class zoo
-    def __init__(self, fences :list[Fence], zoo_keeper: list[ZooKeeper] ) -> None:
-        self.fences=fences
-        self.zoo_keeper=zoo_keeper
-    # I create a fuction that describes informations about the zoo, animals and zoo keepers 
+    # Defines the values for the object of the Zoo class
+    def __init__(self, fences: list[Fence], zoo_keepers: list[ZooKeeper]) -> None:
+        self.fences = fences
+        self.zoo_keepers = zoo_keepers
+
+    # Function that describes the information about the zoo, animals, and zookeepers
     def describe_zoo(self):
         print("Guardians:")
-        for keeper in self.zoo_keeper:
+        for keeper in self.zoo_keepers:
             print(f"ZooKeeper(name={keeper.nome}, surname={keeper.cognome}, id={keeper.id})")
         
         print("\nFences:")
         for fence in self.fences:
             if fence.animal:
-                print(f"Fence(area={round(fence.area,3)}, temperature={fence.temperature}, habitat={fence.habitat})")
+                print(f"Fence(area={round(fence.area, 3)}, temperature={fence.temperature}, habitat={fence.habitat})")
                 print("with animals:")
                 for animal in fence.animal:
-                    print(f"\n Animal(name={animal.name}, species={animal.species}, age={animal.age})")
+                    print(f"Animal(name={animal.name}, species={animal.species}, age={animal.age}, height={animal.height:.2f}, width={animal.width:.2f}, health={animal.health:.2f})")
                 print("#" * 30)
-   
-
 
 # Define some animals
 animal1 = Animal(name="Lion", species="Panthera leo", age=5, height=1.2, width=2.5, preferred_habitat="Savannah")
@@ -153,14 +141,14 @@ animal2 = Animal(name="Elephant", species="Loxodonta", age=10, height=3.3, width
 animal3 = Animal(name="Penguin", species="Aptenodytes forsteri", age=3, height=0.8, width=1.0, preferred_habitat="Cold")
 
 # Define some fences
-fence1 = Fence( area=100.0, temperature=30.0, habitat="Savannah")
-fence2 = Fence( area=50.0, temperature=-5.0, habitat="Cold")
+fence1 = Fence(area=100.0, temperature=30.0, habitat="Savannah")
+fence2 = Fence(area=50.0, temperature=-5.0, habitat="Cold")
 
 # Define a zookeeper
 zookeeper = ZooKeeper(nome="John", cognome="Doe", id="ZK001")
 
 # Define a zoo
-zoo = Zoo(fences=[fence1, fence2], zoo_keeper=[zookeeper])
+zoo = Zoo(fences=[fence1, fence2], zoo_keepers=[zookeeper])
 
 # Describe the initial state of the zoo
 print("Initial state of the zoo:")
@@ -177,6 +165,8 @@ zoo.describe_zoo()
 
 # Feed an animal
 zookeeper.feed(animal1)
+zookeeper.feed(animal2)
+zookeeper.feed(animal3)
 
 # Describe the state of the zoo after feeding an animal
 print("\nAfter feeding an animal:")
