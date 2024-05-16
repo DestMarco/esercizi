@@ -108,7 +108,9 @@ class ZooKeeper:
             animal.fen.area -= (animal.height * animal.width)
     # Function that allows the zookeeper to clean all the enclosures in the zoo
     def clean(self, fence: Fence) -> float:
-        area_oc = sum(animal.height * animal.width for animal in fence.animal)
+        area_oc = 0
+        for animal in fence.animal:
+            area_oc += animal.height * animal.width
         if fence.area == 0:
             return area_oc
         else:
