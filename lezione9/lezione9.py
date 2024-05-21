@@ -204,8 +204,6 @@ def revers(self,head:ListNode):
             queque.append(curr_node.next)
     return reverse_list[::-1]
 
-
-    pass
 head=ListNode(val=0, 
               next=ListNode(val=1,
                             next=ListNode(val=5,
