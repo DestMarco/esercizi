@@ -13,6 +13,8 @@ print(a)
 print("_---------------------------------------------------------------------------------------")
 """
 Data l'inizio di una lista concatenata, invertire la lista e restituire la lista invertita.
+
+
 """
 
 class ListNode:
@@ -185,3 +187,64 @@ board = [["8","3",".",".","7",".",".",".","."]
 ,[".",".",".","4","1","9",".",".","5"]
 ,[".",".",".",".","8",".",".","7","9"]]
 print(valid_sudoku(board))
+
+print("---------------------------------------------------------------------------------------")
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val=val
+        self.next=next
+def revers(self,head:ListNode):
+    reversed_list:list[int]=[]
+    queque:list[int]=[head]
+    while queque:
+        curr_node=queque.pop(0)
+        if curr_node:
+            reversed_list.append(curr_node.val)
+            queque.append(curr_node.next)
+    return reverse_list[::-1]
+
+
+    pass
+head=ListNode(val=0, 
+              next=ListNode(val=1,
+                            next=ListNode(val=5,
+                                          next=ListNode(val=6))))
+print(revers(head))
+
+print("--------------------------------------------------------------------------------------")
+
+
+class ListNode:
+    
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+        
+def reverse(head: ListNode) -> list[int]:
+    reversed_list: list[int] = []
+    queue: list[ListNode] = [head]
+    
+    while queue:
+        curr_node = queue.pop()
+        if curr_node:
+            reversed_list.append(curr_node.val)
+            queue.append(curr_node.next)
+    return reversed_list[::-1]
+
+def reverse_recursive(head: ListNode) -> list[int]:
+    reversed_list: list[int] = []
+    _reverse(head, reversed_list)
+    return reversed_list[::-1]
+
+def _reverse(curr_node: ListNode, reversed_list: list[int]):
+    if curr_node:
+        reversed_list.append(curr_node.val)
+        _reverse(curr_node.next, reversed_list)
+        
+
+head = ListNode(val=0, 
+                next=ListNode(val=1, 
+                              next=ListNode(val=5, 
+                                            next=ListNode(val=6))))
+print(reverse(head))
