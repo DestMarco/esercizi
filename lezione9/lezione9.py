@@ -210,6 +210,9 @@ head=ListNode(val=0,
               next=ListNode(val=1,
                             next=ListNode(val=5,
                                           next=ListNode(val=6))))
+
+
+
 print(revers(head))
 
 print("--------------------------------------------------------------------------------------")
@@ -247,4 +250,6 @@ head = ListNode(val=0,
                 next=ListNode(val=1, 
                               next=ListNode(val=5, 
                                             next=ListNode(val=6))))
+
+
 print(reverse(head))
