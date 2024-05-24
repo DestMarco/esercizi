@@ -14,4 +14,40 @@ def move_zeroes(nums:list[int]):
     return nums 
 print(move_zeroes(nums=[1,0,3,0,4,0,8,0,10,0,0,0,0,0,0,1,9]))
 
+print("----------------------------------------------------------------------")
 
+
+def rotate_left(lst,k):
+    if not lst:
+        return[]
+    if k==0:
+        return lst
+    k = k % len(lst)
+    return lst[k:] + lst[:k]
+
+print (rotate_left([1,2,3,4,5],2))
+
+
+def print_seq():
+    # Sequenza a)
+    print("Sequenza a):")
+    for i in range(1, 8):
+        print(i)
+  
+    print("\nSequenza b):")
+    # Sequenza b)
+    for i in range(3, 24, 5):
+        print(i)
+        
+    print("\nSequenza c):")
+    # Sequenza c)
+    for i in range(20, -12, -6):
+        print(i)
+        
+    print("\nSequenza d):")
+    # Sequenza d)
+    for i in range(19, 52, 8):
+        print(i)
+        break 
+# Esegui la funzione per stampare le sequenze
+print_seq()

@@ -76,4 +76,97 @@ class Bulding:
 smi=Bulding(name="SMI",address="via sierra nevada à60",num_float=5)
 smi.add_room(id="666",floor=3,seats=32)
 
+print("---------------------------------------------------------------------------------")
 
+
+"""
+Implement a last-in-first-out (LIFO) stack using only two queues.
+The implemented stack should support all the functions of a normal stack (push, top, pop, and empty).
+
+Implement the MyStack class:
+
+- push(x: int) -> None: Pushes element x to the top of the stack.
+- pop() -> None Removes the element on the top of the stack and returns it.
+- pop() -> None Returns the element on the top of the stack.
+- empty() -> None Returns true if the stack is empty, false otherwise.
+"""
+
+from collections import deque
+
+class MyStack:
+    def __init__(self):
+        self.a = deque()
+        self.b = deque()
+    
+    def push(self, x: int) -> None:
+        self.a.append(x)
+    
+    def pop(self) -> int:
+        while len(self.a) > 1:
+            self.b.append(self.a.popleft())
+        top_element = self.a.popleft()
+        self.a, self.b = self.b, self.a
+        return top_element
+    
+    def top(self) -> int:
+        while len(self.a) > 1:
+            self.a.append(self.b.popleft())
+        top_element = self.a.popleft()
+        self.a.append(top_element)
+        self.a, self.b = self.b, self.a
+        return top_element
+    
+    def empty(self) -> bool:
+        return not self.a
+    
+print("------------------------------------------------------")
+print("Esercizi")
+def longest_palindrome(s: str) -> int:
+    length = 0
+    odd_found = False
+    
+
+    for char in set(s):  
+        count = s.count(char)
+        length += count // 2 * 2  
+        if count % 2 == 1:
+            odd_found = True
+    
+    if odd_found:
+        length += 1
+    
+    return length
+print("-------------------------------------------------------------------------")
+
+def is_valid_parenthesis(s: str) -> bool:
+    l1:list=[]
+    l2:list=[]
+    for i in s:
+        if len(l2)>len(l1):
+            return False
+        if i == ')]}':
+            l2.append(i)
+        elif i == '([{':
+            l1.append(i)
+        else:
+             continue
+    l3=l1+l2
+    return True
+print("---------------------------------------------------------------------------")
+def merge(nums1, m, nums2, n):
+    p1,p2 =m-1,n-1
+    p=m+n-1
+    while p1 >=0 and p2>=0:
+        if nums1[p1]>nums2[p2]:
+            nums1[p] = nums1[p1]
+            p1-=1
+        else:
+            nums1[p]=nums2[p2]
+            p2 -=1
+        p -=1
+    while p2 >=0:
+        nums1[p] = nums2[p2]
+        p2-=1
+        p-=1
+    return nums1
+        
