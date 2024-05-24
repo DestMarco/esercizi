@@ -24,23 +24,41 @@ def are_mirrored(tree,left_index, right_index)-> bool:
     return is_symmetric_internal and is_symmetric_external
 
 """    
-import getpass
+def rotate_left(lst,k):
+    if not lst:
+        return[]
+    if k==0:
+        return lst
+    k=k%len(lst)
+    return lst[k:]+lst[:k]
+print(rotate_left([1,2,3,4,5],2))
 
+print("-----------------------------------------------------------------------------")
 
-print("esempio")
-username = input ("Enter Username")
-print("Username is:" + username)
-
-if username != "Marco":
-    print("Username non valido")
-else:
-    password = getpass.getpass("Enter Password: ")
-    print("Password entered")
-
-    if password != "Marcolino71":
-        print("Password non valida")
+def trasform(x:int)->int:
+    if x % 2 ==0:
+        return x/2
     else:
-        print("Username e password validi")
-        
+        return x * 3 -1
+print(trasform(3))
 
+
+print("--------------------------------------------------------------------------------------")
+
+def calcola_stipendio(ore_lavorate:int) -> float:
+    paga_oraria =10.0
+    ore_normali =40
+    if ore_lavorate <= ore_normali:
+        stipendio_lordo=ore_lavorate *paga_oraria
+    else:
+        ore_extra=ore_lavorate-ore_normali
+        stipendio_lordo=(ore_normali*paga_oraria)+(ore_extra * paga_oraria * 1.5)
+    return stipendio_lordo
+print("-----------------------------------------------------------------------------------------")
+
+def integerPower(base:int,esponente:int):
+    if esponente != 0:
+        return base ** esponente
+    
+    
 
