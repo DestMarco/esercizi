@@ -90,34 +90,49 @@ Implement the MyStack class:
 - pop() -> None Returns the element on the top of the stack.
 - empty() -> None Returns true if the stack is empty, false otherwise.
 """
+print("--------------------------------------------------------------------")
+class Queue:
+    def __init__(self):
+        self.queue = []
 
-from collections import deque
+    def enqueue(self, x: int) -> None:
+        self.queue.append(x)
+
+    def dequeue(self) -> int:
+        if self.is_empty():
+            return None
+        return self.queue.pop(0)
+
+    def is_empty(self) -> bool:
+        return len(self.queue) == 0
+
+    def size(self) -> int:
+        return len(self.queue)
+
 
 class MyStack:
     def __init__(self):
-        self.a = deque()
-        self.b = deque()
-    
+        self.queue1 = Queue()
+        self.queue2 = Queue()
+
     def push(self, x: int) -> None:
-        self.a.append(x)
-    
+
+        while not self.queue1.is_empty():
+            self.queue2.enqueue(self.queue1.dequeue())
+        
+        self.queue1.enqueue(x)
+        
+        while not self.queue2.is_empty():
+            self.queue1.enqueue(self.queue2.dequeue())
+
     def pop(self) -> int:
-        while len(self.a) > 1:
-            self.b.append(self.a.popleft())
-        top_element = self.a.popleft()
-        self.a, self.b = self.b, self.a
-        return top_element
-    
+        return self.queue1.dequeue()
+
     def top(self) -> int:
-        while len(self.a) > 1:
-            self.a.append(self.b.popleft())
-        top_element = self.a.popleft()
-        self.a.append(top_element)
-        self.a, self.b = self.b, self.a
-        return top_element
-    
+        return self.queue1.queue[0] if not self.queue1.is_empty() else None
+
     def empty(self) -> bool:
-        return not self.a
+        return self.queue1.is_empty()
     
 print("------------------------------------------------------")
 print("Esercizi")
@@ -169,4 +184,5 @@ def merge(nums1, m, nums2, n):
         p2-=1
         p-=1
     return nums1
-        
+print("--------------------------------------------------------------------------------")
+
