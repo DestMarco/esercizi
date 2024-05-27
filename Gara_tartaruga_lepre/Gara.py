@@ -52,13 +52,19 @@ mostrare la posizione sulla corsia di gara, e determinare l'eventuale fine della
 import random
 
 
-def show_position(turtle_position:int,
-                        hare_position:int)-> int:
+def show_position(turtle_position:int,hare_position:int)-> int:
+    if not (1 <= turtle_position <= 70 and 1 <= hare_position <= 70):
+        turtle_position =0
+        hare_position=0
     hallway:list[int]=[]
-    for _ in range[70]:
+    for _ in range(70):
         hallway.append('_')
-    hallway[turtle_position-1]="T"
-    hallway[hare_position-1]="H"
+    if turtle_position >= 1:
+        hallway[turtle_position - 1] = "T"
+    if hare_position >= 1:
+        hallway[hare_position - 1] = "H"
+    if turtle_position == hare_position:
+        hallway[turtle_position - 1] = "OUCH"
     return ''.join(hallway)
 def move_tartle(turtle_position):
     i=random.randint(1,10)
@@ -68,6 +74,8 @@ def move_tartle(turtle_position):
         turtle_position -= 6
     if 8 <= i <=10:
         turtle_position += 1
+    if turtle_position < 1:
+        turtle_position = 0
     return turtle_position
 def move_hare(hare_position):
     i=random.randint(1,10)
@@ -81,6 +89,8 @@ def move_hare(hare_position):
         hare_position +=1
     if 9 <= i <= 10:
         hare_position -= 2
+    if hare_position < 1:
+        hare_position = 0
     return hare_position
 def race_simulation():
     turtle_position= 1
@@ -103,8 +113,7 @@ def race_simulation():
         elif hare_position >= 70:
             print("HARE WINS! || YUCH !!!")
             break
-        elif turtle_position == hare_position:
-            print("OUCH !!!")
+
 
 race_simulation()
         
