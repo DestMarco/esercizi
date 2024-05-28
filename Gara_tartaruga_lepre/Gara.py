@@ -64,7 +64,8 @@ def show_position(turtle_position:int,hare_position:int)-> int:
     if hare_position >= 1:
         hallway[hare_position - 1] = "H"
     if turtle_position == hare_position:
-        hallway[turtle_position - 1] = "OUCH"
+        hallway[turtle_position] = "OUCH"
+        hallway[hare_position ]="OUCH"
     return ''.join(hallway)
 def move_tartle(turtle_position):
     i=random.randint(1,10)
