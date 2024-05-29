@@ -103,65 +103,114 @@ bonus sul percorso (chiave) ed i relativi effetti (valore). Consentire agli anim
 beneficiare pienamente dei bonus, ma non oltrepassare il traguardo.
 
 """
+
 import random
 
+def show_position(turtle_position: int, hare_position: int) -> str:
+    hallway = ['_' for _ in range(70)]
 
-def show_position(turtle_position:int,hare_position:int)-> int:
-    if not (1 <= turtle_position <= 70 and 1 <= hare_position <= 70):
-        turtle_position =0
-        hare_position=0
-    hallway:list[int]=[]
-    for _ in range(70):
-        hallway.append('_')
-    if turtle_position >= 1:
-        hallway[turtle_position - 1] = "T"
-    if hare_position >= 1:
-        hallway[hare_position - 1] = "H"
+    # Corregge la posizione per evitare l'errore IndexError
+    if turtle_position >= 70:
+        turtle_position = 69
+    if hare_position >= 70:
+        hare_position = 69
+
     if turtle_position == hare_position:
-        hallway[turtle_position] = "OUCH"
-        hallway[hare_position ]="OUCH"
-
+        hallway[turtle_position - 1] = "OUCH!!!"
+    else:
+        hallway[turtle_position - 1] = "T"
+        hallway[hare_position - 1] = "H"
+    
     return ''.join(hallway)
-def move_tartle(turtle_position):
-    i=random.randint(1,10)
-    if 1<=i<=5:
-        turtle_position += 3
-    elif 6 <= i <= 7:
-        turtle_position -= 6
-    if 8 <= i <=10:
-        turtle_position += 1
+
+def move_turtle(turtle_position, weather, energy):
+    i = random.randint(1, 10)
+    if i <= 5:
+        move = 3 if weather == "sunny" else 2
+        if energy >= 5:
+            turtle_position += move
+            energy -= 5
+        else:
+            energy += 10  # Recupera energia
+    elif i <= 7:
+        move = -6 if weather == "sunny" else -7
+        if energy >= 10:
+            turtle_position += move
+            energy -= 10
+        else:
+            energy += 10  # Recupera energia
+    else:
+        move = 1 if weather == "sunny" else 0
+        if energy >= 3:
+            turtle_position += move
+            energy -= 3
+        else:
+            energy += 10  # Recupera energia
+    
     if turtle_position < 1:
-        turtle_position = 0
-    return turtle_position
-def move_hare(hare_position):
-    i=random.randint(1,10)
-    if 1 <= i <= 2:
-        hare_position +=0
-    elif 3 <= i <= 4:
-        hare_position +=9
-    if i == 5:
-        hare_position -=12
-    elif 6 <= i <= 8:
-        hare_position +=1
-    if 9 <= i <= 10:
-        hare_position -= 2
+        turtle_position = 1
+    return turtle_position, energy
+
+def move_hare(hare_position, weather, energy):
+    i = random.randint(1, 10)
+    if i <= 2:
+        if energy < 100:
+            energy += 10
+    elif i <= 4:
+        move = 9 if weather == "sunny" else 7
+        if energy >= 15:
+            hare_position += move
+            energy -= 15
+        else:
+            energy += 10  # Recupera energia
+    elif i == 5:
+        move = -12 if weather == "sunny" else -14
+        if energy >= 20:
+            hare_position += move
+            energy -= 20
+        else:
+            energy += 10  # Recupera energia
+    elif i <= 8:
+        move = 1 if weather == "sunny" else -1
+        if energy >= 5:
+            hare_position += move
+            energy -= 5
+        else:
+            energy += 10  # Recupera energia
+    else:
+        move = -2 if weather == "sunny" else -4
+        if energy >= 8:
+            hare_position += move
+            energy -= 8
+        else:
+            energy += 10  # Recupera energia
+    
     if hare_position < 1:
-        hare_position = 0
-    return hare_position
+        hare_position = 1
+    return hare_position, energy
+
 def race_simulation():
-    turtle_position= 1
-    hare_position=1
-    
-    print(" BANG !!!! AND THAY'RE OFF !!!!!")
-    
-    while True:
-        turtle_position = move_tartle(turtle_position)
-        hare_position= move_hare(hare_position)
+    turtle_position = 1
+    hare_position = 1
+    turtle_energy = 100
+    hare_energy = 100
+    weather = "sunny"
+    ticks = 0
+
+    print("BANG !!!! AND THEY'RE OFF !!!!!")
+
+    while turtle_position < 70 and hare_position < 70:
+        ticks += 1
+        if ticks % 10 == 0:
+            weather = "rainy" if weather == "sunny" else "sunny"
         
+        turtle_position, turtle_energy = move_turtle(turtle_position, weather, turtle_energy)
+        hare_position, hare_energy = move_hare(hare_position, weather, hare_energy)
+
         print(show_position(turtle_position,hare_position))
-        
+   
         if turtle_position >= 70 and hare_position >= 70:
-            print("IT'S a TIE")
+            print("IT'S A TIE")
             break
         elif turtle_position >= 70:
             print("TORTOISE WINS! || VAY !!!")
@@ -170,6 +219,4 @@ def race_simulation():
             print("HARE WINS! || YUCH !!!")
             break
 
-
 race_simulation()
-        
