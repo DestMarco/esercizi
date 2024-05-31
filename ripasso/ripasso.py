@@ -107,77 +107,8 @@ gatto_1:gatto=gatto(nome="franco")
 gatto_1.verso()
 gatto_1.movimento(t=10)
 """
-"""
-import random
 
 
-def show_position(turtle_position:int,hare_position:int)-> int:
-    if not (1 <= turtle_position <= 70 and 1 <= hare_position <= 70):
-        turtle_position =0
-        hare_position=0
-    hallway:list[int]=[]
-    for _ in range(70):
-        hallway.append('_')
-    if turtle_position >= 1:
-        hallway[turtle_position - 1] = "T"
-    if hare_position >= 1:
-        hallway[hare_position - 1] = "H"
-    if turtle_position == hare_position:
-        hallway[turtle_position] = "OUCH"
-        hallway[hare_position ]="OUCH"
-
-    return ''.join(hallway)
-def move_tartle(turtle_position):
-    i=random.randint(1,10)
-    if 1<=i<=5:
-        turtle_position += 3
-    elif 6 <= i <= 7:
-        turtle_position -= 6
-    if 8 <= i <=10:
-        turtle_position += 1
-    if turtle_position < 1:
-        turtle_position = 0
-    return turtle_position
-def move_hare(hare_position):
-    i=random.randint(1,10)
-    if 1 <= i <= 2:
-        hare_position +=0
-    elif 3 <= i <= 4:
-        hare_position +=9
-    if i == 5:
-        hare_position -=12
-    elif 6 <= i <= 8:
-        hare_position +=1
-    if 9 <= i <= 10:
-        hare_position -= 2
-    if hare_position < 1:
-        hare_position = 0
-    return hare_position
-def race_simulation():
-    turtle_position= 1
-    hare_position=1
-    
-    print(" BANG !!!! AND THAY'RE OFF !!!!!")
-    
-    while True:
-        turtle_position = move_tartle(turtle_position)
-        hare_position= move_hare(hare_position)
-        
-        print(show_position(turtle_position,hare_position))
-        
-        if turtle_position >= 70 and hare_position >= 70:
-            print("IT'S a TIE")
-            break
-        elif turtle_position >= 70:
-            print("TORTOISE WINS! || VAY !!!")
-            break
-        elif hare_position >= 70:
-            print("HARE WINS! || YUCH !!!")
-            break
-
-
-race_simulation()
-"""
 class ContoBancario:
     total_account=0
     def __init__(self,iban, saldo, nome) -> None:
