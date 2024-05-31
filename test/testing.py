@@ -1,5 +1,5 @@
 import unittest
-from ..ripasso.ripasso2 import Calc
+from ripasso.ripasso2 import Calc
 class TestCalculetion(unittest.TestCase):
     def setUp(self):
         self.calculetion=Calc(8,2)
