@@ -164,6 +164,7 @@ def valid_sudoku(board: list[list[str]]) -> bool:
                 rows[i].add(n)
                 colums[j].add(n)
                 boxe[box_index].add(n)
+                
     return True
 
 board = [["5","3",".",".","7",".",".",".","."]
@@ -203,6 +204,7 @@ def revers(self,head:ListNode):
             reversed_list.append(curr_node.val)
             queque.append(curr_node.next)
     return reverse_list[::-1]
+
 
 head=ListNode(val=0, 
               next=ListNode(val=1,
