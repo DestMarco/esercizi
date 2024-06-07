@@ -155,6 +155,70 @@ c.add1()
 z  = c.get()
 print(z)
 
+
+
+print("---------------------------------------------------------------------------------------------")
+
+class RecipeManager:
+    def __init__(self):
+        self.recipes = {}
+
+    def create_recipe(self, name, ingredients):
+        if name in self.recipes:
+            return f"Errore: La ricetta '{name}' esiste già."
+        self.recipes[name] = ingredients
+        return {name: ingredients}
+
+    def add_ingredient(self, r_n, ingredient):
+        if r_n not in self.recipes:
+            return f"Errore: La ricetta '{r_n}' non esiste."
+        if ingredient in self.recipes[r_n]:
+            return f"Errore: L'ingrediente '{ingredient}' esiste già nella ricetta '{r_n}'."
+        self.recipes[r_n].append(ingredient)
+        return {r_n: self.recipes[r_n]}
+
+    def remove_ingredient(self, r_n, ingredient):
+        if r_n not in self.recipes:
+            return f"Errore: La ricetta '{r_n}' non esiste."
+        if ingredient not in self.recipes[r_n]:
+            return f"Errore: L'ingrediente '{ingredient}' non è presente nella ricetta '{r_n}'."
+        self.recipes[r_n].remove(ingredient)
+        return {r_n: self.recipes[r_n]}
+
+    def update_ingredient(self, r_n, o_ing, new_ing):
+        if r_n not in self.recipes:
+            return f"Errore: La ricetta '{r_n}' non esiste."
+        if o_ing not in self.recipes[r_n]:
+            return f"Errore: L'ingrediente '{o_ing}' non è presente nella ricetta '{r_n}'."
+        index = self.recipes[r_n].index(o_ing)
+        self.recipes[r_n][index] = new_ing
+        return {r_n: self.recipes[r_n]}
+
+    def list_recipes(self):
+        return list(self.recipes.keys())
+
+    def list_ingredients(self, r_n):
+        if r_n not in self.recipes:
+            return f"Errore: La ricetta '{r_n}' non esiste."
+        return self.recipes[r_n]
+
+    def search_recipe_by_ingredient(self, ingredient):
+        found_recipes = [name for name, ingredients in self.recipes.items() if ingredient in ingredients]
+        if not found_recipes:
+            return f"Errore: Nessuna ricetta contiene l'ingrediente '{ingredient}'."
+        return found_recipes
+
+# Test examples
+manager = RecipeManager()
+print(manager.create_recipe("Pizza Margherita", ["Farina", "Acqua", "Lievito", "Pomodoro", "Mozzarella"]))
+print(manager.add_ingredient("Pizza Margherita", "Basilico"))
+print(manager.update_ingredient("Pizza Margherita", "Mozzarella", "Mozzarella di Bufala"))
+print(manager.remove_ingredient("Pizza Margherita", "Acqua"))
+print(manager.list_ingredients("Pizza Margherita"))
+print(manager.list_recipes())
+print(manager.search_recipe_by_ingredient("Pomodoro"))
+print(manager.search_recipe_by_ingredient("Peperoni"))
+
            
            
            
