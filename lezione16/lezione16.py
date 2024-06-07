@@ -32,7 +32,7 @@ Si verifichi il funzionamento scrivendo un codice che crei almeno due oggetti di
 class Media:
     def __init__(self):
         self.title=None
-        self.reiews=[]
+        self.reviews=[]
 
     def set_title(self,title):
         self.title=title
@@ -41,13 +41,13 @@ class Media:
         return self.title
     def aggiungiValutazione(self,voto:int):
         if 1<= voto <=5:
-            self.reiews.append(voto)
+            self.reviews.append(voto)
         else:
             print("il voto deve essere compreso tra 1 a 5")
 
     def getMedia (self):
-        if self.reiews:
-            return sum (self.reiews)/len (self.reiews)
+        if self.reviews:
+            return sum (self.reviews)/len (self.reviews)
         return 0
     
     def getRate(self):
@@ -62,28 +62,39 @@ class Media:
             return "Brutto"
         else:
             return "Terribbile"
+    
+    def getPercentage(self, voto):
+        total_reviews = len(self.reviews)
+        count = self.reviews.count(voto)
+        return (count / total_reviews) * 100 if total_reviews > 0 else 0
+
     def ratePercentage(self):
-        print(f"titolo del Media:{self.get_title()}")
-        print(f"voto medio: {self.getMedia():.2f}")
-        print(f"Giudizio:{self.getRate}")        
-        for i in range(1,6):
-            Percentage=self.ratePercentage(i)
-            if i==1:
-                print(f"Terribbile:{Percentage:.2f}%")
-            elif i==2:
-                print(f"Brutto:{Percentage:.2f}%")
-            elif i==3:
-                print(f"Normale:{Percentage:.2f}%")
-            elif i==4:
-                print(f"Bello:{Percentage:.2f}%")
-            elif i==5:
-                print(f"Grandioso:{Percentage:.2f}%")
+        print(f"Titolo del Media: {self.get_title()}")
+        print(f"Voto medio: {self.getMedia():.2f}")
+        print(f"Giudizio: {self.getRate()}")
+        for i in range(1, 6):
+            percentage = self.getPercentage(i)
+            if i == 1:
+                print(f"Terribile: {percentage:.2f}%")
+            elif i == 2:
+                print(f"Brutto: {percentage:.2f}%")
+            elif i == 3:
+                print(f"Normale: {percentage:.2f}%")
+            elif i == 4:
+                print(f"Bello: {percentage:.2f}%")
+            elif i == 5:
+                print(f"Grandioso: {percentage:.2f}%")
+
 
 class Film(Media):
-    pass
+    def __init__(self):
+        super().__init__()
 
-film1=Film("Matrix")
-film2=Film("The lord of the ring ")
+
+film1 = Film()
+film1.set_title("Matrix")
+film2 = Film()
+film2.set_title("The Lord of the Rings")
            
 ratings_film1=[5,2,1,5,4,1,2,5,5,4,2,1,1,1] 
 ratings_film2=[5,2,1,5,4,3,2,5,5,4,2,3,5,5] 
@@ -94,10 +105,56 @@ for rating in ratings_film1:
 for rating in ratings_film2:
     film2.aggiungiValutazione(rating)
 
-    
+
+film1.ratePercentage()
+print()
+film2.ratePercentage()
+
            
-           
-           
+print("-------------------------------------------------------------------------------------")
+
+class Contatore:
+    def __init__(self):
+        self.conteggio = 0
+
+    def setZero(self):
+        self.conteggio = 0
+
+    def add1(self):
+        self.conteggio += 1
+
+    def sub1(self):
+        if self.conteggio > 0:
+            self.conteggio -= 1
+        else:
+            print("Non è possibile eseguire la sottrazione")
+
+    def get(self):
+        return self.conteggio
+
+    def mostra(self):
+        print(f"Conteggio attuale: {self.conteggio}")
+
+# Test examples
+c = Contatore()  
+c.add1() 
+c.mostra()
+
+c = Contatore()  
+c.sub1()  
+c.mostra()
+
+c = Contatore() 
+c.add1()
+c.add1()
+c.add1()
+c.add1()
+c.sub1()  
+c.add1()
+c.add1()
+z  = c.get()
+print(z)
+
            
            
            
