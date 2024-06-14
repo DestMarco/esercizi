@@ -72,5 +72,4 @@ class Dottore(Persona):
     
     def doctorGreet(self):
         self.greet()
-        if self.specialization is not None:
-            print(f"Sono un medico {self.specialization}.")
+        print(f"Sono un medico {self.specialization}.")
