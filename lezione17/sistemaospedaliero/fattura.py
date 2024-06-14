@@ -23,30 +23,30 @@ get Fatture() e getSalary(). Stampare "Alla lista del Dottor cognome è stato ri
 from pazziente import Paziente
 from dottore import Dottore
 
-class Fattura:
+class Fattura():
     def __init__(self, patients, doctor):
         if doctor.getAge() is not None and doctor.getAge() > 30:
             self.patients = patients
             self.doctor = doctor
-            self.__fatture = len(patients)
-            self.__salary = 0
+            self.fatture = len(patients)
+            self.salary = 0
         else:
             self.patients = None
             self.doctor = None
-            self.__fatture = None
-            self.__salary = None
+            self.fatture = None
+            self.salary = None
             print("Non è possibile creare la classe fattura poiché il dottore non è valido!")
     
     def getSalary(self):
         if self.doctor is not None:
-            self.__salary = self.__fatture * self.doctor.getParcel()
-            return self.__salary
+            self.salary = self.fatture * self.doctor.getParcel()
+            return self.salary
         return None
     
     def getFatture(self):
         if self.patients is not None:
-            self.__fatture = len(self.patients)
-            return self.__fatture
+            self.fatture = len(self.patients)
+            return self.fatture
         return None
     
     def addPatient(self, newPatient):
