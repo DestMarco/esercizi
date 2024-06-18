@@ -113,6 +113,7 @@ class TestFattura(unittest.TestCase):
     def test_remove_patient(self):
         self.fattura.removePatient("P002")
         self.assertEqual(self.fattura.getFatture(), 1)
+        
         self.assertEqual(self.fattura.getSalary(), 150.0)
 
 if __name__ == "__main__":
