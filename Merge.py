@@ -80,6 +80,7 @@ if __name__ == "__main__":
     plt.plot(cases, merge_sort_times, label="Merge Sort")
     plt.plot(cases, bubble_sort_times, label="Bubble Sort")
     plt.xscale("log")
+    plt.yscale("log")
     plt.xlabel("Number of elements (log scale)")
     plt.ylabel("Time (seconds)")
     plt.legend()
