@@ -178,13 +178,12 @@ def decorator(func):
         
     return wrapper
 
-from merge import mergeSort # type: ignore
+from merge import mergeSort
 
 class Anlisi:
 
     @staticmethod
-
-    def decorator(func):
+    def tempo(func):
         def wrapper(*args):
             import time
             
@@ -197,7 +196,6 @@ class Anlisi:
         return wrapper
 
 @Anlisi.tempo
-
 def move_hare(hare_position, weather, energy):
     i = random.randint(1, 10)
     if i <= 2:
