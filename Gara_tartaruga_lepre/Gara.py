@@ -165,6 +165,39 @@ def move_turtle(turtle_position, weather, energy):
         turtle_position = 1
     return turtle_position, energy
 
+def decorator(func):
+    
+    def wrapper(*args):
+        import time
+        
+        start = time.time()
+        
+        func(*args)
+        
+        print(f"Time elapsed: {time.time() - start}")
+        
+    return wrapper
+
+from merge import mergeSort # type: ignore
+
+class Anlisi:
+
+    @staticmethod
+
+    def decorator(func):
+        def wrapper(*args):
+            import time
+            
+            start = time.time()
+            
+            func(*args)
+            
+            print(f"Time elapsed: {time.time() - start}")
+        
+        return wrapper
+
+@Anlisi.tempo
+
 def move_hare(hare_position, weather, energy):
     i = random.randint(1, 10)
     if i <= 2:
